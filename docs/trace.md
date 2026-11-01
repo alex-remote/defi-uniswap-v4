@@ -33,7 +33,7 @@
 | A07 | libraries 全部 | 12 | 595 | ⏳ 进行中 |
 | A08 | types、Constants、TStore、examples、aave-v3、MixedRouteQuoterV2Example、.gitignore | 13 | 488 | ⏳ 进行中 |
 | A09 | LimitOrder（练习 + 答案） | 2 | 729 | ⏳ 进行中 |
-| A10 | Liquidate（练习 + 答案） | 2 | 311 | ⏳ 进行中 |
+| A10 | Liquidate（练习 + 答案） | 2 | 311 | ✅ 已完成 |
 | A11 | Posm（练习 + 答案） | 2 | 261 | ⏳ 进行中 |
 | A12 | Router（练习 + 答案） | 2 | 524 | ✅ 已完成 |
 | A13 | SwapV3ToV4 / Reposition / Swap / Subscriber（练习 + 答案） | 8 | 712 | ⏳ 进行中 |
@@ -89,7 +89,7 @@
 - [ ] `foundry/src/exercises/CounterHook.sol` — 159 行 · 待译注释约 4 行 · A14
 - [ ] `foundry/src/exercises/Flash.sol` — 42 行 · 待译注释约 4 行 · A14
 - [ ] `foundry/src/exercises/LimitOrder.sol` — 247 行 · 待译注释约 16 行 · A09
-- [ ] `foundry/src/exercises/Liquidate.sol` — 127 行 · 待译注释约 14 行 · A10
+- [x] `foundry/src/exercises/Liquidate.sol` — 127 行 · 待译注释约 14 行 · A10 · 译后 127 行 ✅
 - [ ] `foundry/src/exercises/Posm.sol` — 96 行 · 待译注释约 13 行 · A11
 - [ ] `foundry/src/exercises/Reader.sol` — 34 行 · 待译注释约 1 行 · A14
 - [ ] `foundry/src/exercises/Reposition.sol` — 38 行 · 待译注释约 2 行 · A13
@@ -140,7 +140,7 @@
 - [ ] `foundry/src/solutions/CounterHook.sol` — 163 行 · 待译注释约 4 行 · A14
 - [ ] `foundry/src/solutions/Flash.sol` — 61 行 · 待译注释约 5 行 · A14
 - [ ] `foundry/src/solutions/LimitOrder.sol` — 482 行 · 待译注释约 15 行 · A09
-- [ ] `foundry/src/solutions/Liquidate.sol` — 184 行 · 待译注释约 20 行 · A10
+- [x] `foundry/src/solutions/Liquidate.sol` — 184 行 · 待译注释约 20 行 · A10 · 译后 184 行 ✅
 - [ ] `foundry/src/solutions/Posm.sol` — 165 行 · 待译注释约 26 行 · A11
 - [ ] `foundry/src/solutions/Reader.sol` — 35 行 · 仅 SPDX 声明，无需改动 · A14
 - [ ] `foundry/src/solutions/Reposition.sol` — 80 行 · 待译注释约 13 行 · A13
@@ -203,3 +203,4 @@
 
 - 2026-11-01：完成文件统计，创建本文档，分派 16 个子代理并行翻译
 - 2026-11-01 15:01：A12 汇报完成，主代理复核 2/2 个文件通过；仅剩注释掉的 import 提示，可忽略
+- 2026-11-01 15:01：A10 汇报完成，主代理复核 2/2 个文件通过；SWAP_EXACT_IN_SINGLE 常量名注释保留原文

@@ -49,14 +49,14 @@ contract Liquidate is IFlashReceiver {
     receive() external payable {}
 
     function liquidate(
-        // Token to flash loan
+        // 要通过闪电贷借入的代币
         address tokenToRepay,
-        // User to liquidate
+        // 要清算的用户
         address user,
-        // V4 pool to swap collateral
+        // 用于兑换抵押品的 V4 池子
         PoolKey calldata key
     ) external {
-        // Map address(0) to WETH
+        // 将 address(0) 映射为 WETH
         (address v4Token0, address v4Token1) = (key.currency0, key.currency1);
         if (v4Token0 == address(0)) {
             v4Token0 = WETH;
@@ -67,12 +67,12 @@ contract Liquidate is IFlashReceiver {
             "invalid pool key"
         );
 
-        // Get token amount to liquidate
+        // 获取要清算的代币数量
         uint256 debt = liquidator.getDebt(tokenToRepay, user);
-        // Flash loan
+        // 闪电贷
         flash.flash(tokenToRepay, debt, abi.encode(user, key));
 
-        // Send profit to msg.sender
+        // 将利润发送给 msg.sender
         uint256 bal = IERC20(tokenToRepay).balanceOf(address(this));
         if (bal > 0) {
             IERC20(tokenToRepay).transfer(msg.sender, bal);
@@ -88,7 +88,7 @@ contract Liquidate is IFlashReceiver {
         (address user, PoolKey memory key) =
             abi.decode(data, (address, PoolKey));
 
-        // Map address(0) to WETH
+        // 将 address(0) 映射为 WETH
         (address v4Token0, address v4Token1) = (key.currency0, key.currency1);
         if (v4Token0 == address(0)) {
             v4Token0 = WETH;
@@ -96,18 +96,18 @@ contract Liquidate is IFlashReceiver {
 
         address collateral = tokenToRepay == v4Token0 ? v4Token1 : v4Token0;
 
-        // Liquidate
+        // 清算
         IERC20(tokenToRepay).approve(address(liquidator), amount);
         liquidator.liquidate(collateral, tokenToRepay, user);
 
-        // Swap collateral
+        // 兑换抵押品
         uint256 colBal = IERC20(collateral).balanceOf(address(this));
-        // Unwrap WETH to ETH
+        // 将 WETH 解包为 ETH
         if (collateral == WETH) {
             weth.withdraw(colBal);
         }
 
-        // Swap using UniversalRouter
+        // 通过 UniversalRouter 进行兑换
         bool zeroForOne = collateral == v4Token0;
         swap({
             key: key,
@@ -116,8 +116,8 @@ contract Liquidate is IFlashReceiver {
             zeroForOne: zeroForOne
         });
 
-        // Repay flash loan
-        // Wrap ETH to WETH
+        // 偿还闪电贷
+        // 将 ETH 包装为 WETH
         address currencyOut = zeroForOne ? key.currency1 : key.currency0;
         if (currencyOut == address(0)) {
             weth.deposit{value: address(this).balance}();
@@ -142,11 +142,11 @@ contract Liquidate is IFlashReceiver {
             approve(currencyIn, uint160(amountIn), uint48(block.timestamp));
         }
 
-        // UniversalRouter inputs
+        // UniversalRouter 的输入
         bytes memory commands = abi.encodePacked(uint8(Commands.V4_SWAP));
         bytes[] memory inputs = new bytes[](1);
 
-        // V4 actions and params
+        // V4 的 actions 及对应参数
         bytes memory actions = abi.encodePacked(
             uint8(Actions.SWAP_EXACT_IN_SINGLE),
             uint8(Actions.SETTLE_ALL),
@@ -163,12 +163,12 @@ contract Liquidate is IFlashReceiver {
                 hookData: bytes("")
             })
         );
-        // SETTLE_ALL (currency, max amount)
+        // SETTLE_ALL（代币, 最大数量）
         params[1] = abi.encode(currencyIn, uint256(amountIn));
-        // TAKE_ALL (currency, min amount)
+        // TAKE_ALL（代币, 最小数量）
         params[2] = abi.encode(currencyOut, uint256(amountOutMin));
 
-        // Universal router input
+        // Universal Router 的输入
         inputs[0] = abi.encode(actions, params);
 
         uint256 msgVal = currencyIn == address(0) ? address(this).balance : 0;

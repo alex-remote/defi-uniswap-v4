@@ -49,17 +49,17 @@ contract Liquidate is IFlashReceiver {
     receive() external payable {}
 
     function liquidate(
-        // Token to flash loan
+        // 要通过闪电贷借入的代币
         address tokenToRepay,
-        // User to liquidate
+        // 要清算的用户
         address user,
-        // V4 pool to swap collateral
+        // 用于兑换抵押品的 V4 池子
         PoolKey calldata key
     ) external {
-        // Write your code here
-        // Get token amount to liquidate
-        // Flash loan
-        // Send profit to msg.sender
+        // 在此编写你的代码
+        // 获取要清算的代币数量
+        // 闪电贷
+        // 将利润发送给 msg.sender
     }
 
     function flashCallback(
@@ -68,7 +68,7 @@ contract Liquidate is IFlashReceiver {
         uint256 fee,
         bytes calldata data
     ) external {
-        // Write your code here
+        // 在此编写你的代码
     }
 
     function swap(
@@ -85,11 +85,11 @@ contract Liquidate is IFlashReceiver {
             approve(currencyIn, uint160(amountIn), uint48(block.timestamp));
         }
 
-        // UniversalRouter inputs
+        // UniversalRouter 的输入
         bytes memory commands = abi.encodePacked(uint8(Commands.V4_SWAP));
         bytes[] memory inputs = new bytes[](1);
 
-        // V4 actions and params
+        // V4 的 actions 及对应参数
         bytes memory actions = abi.encodePacked(
             uint8(Actions.SWAP_EXACT_IN_SINGLE),
             uint8(Actions.SETTLE_ALL),
@@ -106,12 +106,12 @@ contract Liquidate is IFlashReceiver {
                 hookData: bytes("")
             })
         );
-        // SETTLE_ALL (currency, max amount)
+        // SETTLE_ALL（代币, 最大数量）
         params[1] = abi.encode(currencyIn, uint256(amountIn));
-        // TAKE_ALL (currency, min amount)
+        // TAKE_ALL（代币, 最小数量）
         params[2] = abi.encode(currencyOut, uint256(amountOutMin));
 
-        // Universal router input
+        // Universal Router 的输入
         inputs[0] = abi.encode(actions, params);
 
         uint256 msgVal = currencyIn == address(0) ? address(this).balance : 0;
