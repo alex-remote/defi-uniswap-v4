@@ -40,6 +40,7 @@
 | A14 | CounterHook / Flash / UniversalRouter / Reader（练习 + 答案） | 8 | 659 | ✅ 已完成 |
 | A15 | 测试 PosmHelper / LimitOrder / Router / Tick | 4 | 1063 | ✅ 已完成 |
 | A16 | 其余 14 个测试文件 | 14 | 1211 | ✅ 已完成 |
+| A17 | 全仓库译法一致性校对（跨文件统一相同英文原句的译法、检查 `_zh.md` 链接） | — | — | ⏳ 进行中 |
 
 ## 四、文件清单
 
@@ -199,7 +200,30 @@
 2. 去除注释后的代码逐行完全一致（`.md` 为代码围栏位置及代码块内非注释行一致）
 3. 英文原件 `.md` 未被改动
 
-## 七、进度日志
+## 七、原文疑似笔误（译文按本意处理，原文与代码均未改动）
+
+| 位置 | 问题 | 译文处理 |
+| --- | --- | --- |
+| `foundry/src/{exercises,solutions}/CounterHook.sol` 第 7 行 | "ouputs" 应为 "outputs" | 按本意翻译 |
+| `foundry/src/examples/pool_id.sol` 第 20 行 | `unwrap()` 的说明照抄了 `wrap()`，方向写反 | 按正确含义译为“把用户自定义值类型转换回值类型” |
+| `foundry/src/interfaces/INotifier.sol` 第 50 行 | `unsubscriberGasLimit` 应为函数名 `unsubscribeGasLimit` | 标识符照抄原文 |
+| `foundry/src/interfaces/INotifier.sol` 第 11 行 | "too low to avoid valid unsubscribe notifications" 语义不通 | 按本意译为“过低、不足以完成有效的取消订阅通知” |
+| `foundry/src/interfaces/IStateView.sol` 第 53 行 | "fee growth outside a tick range"，但函数只接收单个 tick | 照原文直译 |
+| `foundry/src/interfaces/IPermit2.sol` 第 18、34 行 | "alownce" 拼写错误；"prevent against signature replay protection" 语义重复 | 按本意译为“授权”“防止签名重放” |
+| `foundry/src/interfaces/IV4Router.sol` 第 17、21 行 | 修饰 error 却写 "Emitted" | 译为“抛出” |
+| `foundry/src/solutions/Posm.sol` 第 97–103 行 | `CLOSE_CURRENCY` 注释为单个代币，代码 `abi.encode(address(0), USDC)` 编码了两个地址（解码只读首字，运行结果不受影响） | 照原文翻译，代码未动 |
+| `foundry/src/{exercises,solutions}/Subscriber.sol` | `posm` 声明为 `immutable` 且声明处已赋值，构造函数中再次赋值 | 不属翻译范围，未改动 |
+| `foundry/test/Tick.test.sol` 第 64、71 行 | 写作 "tick 1 > tick 0"，测试数据实为 tick1 <= tick0 | 照原文直译 |
+| `foundry/exercises/counter.md` 第 44、47 行 | 文字说 `afterSwap` 计数，示例代码却是 `counts[key.toId()]["beforeSwap"]` | 照原文翻译 |
+| `foundry/exercises/limit_order.md` 第 88 行 | "approriate" 拼写错误 | 按本意翻译 |
+| `foundry/exercises/quoter.md` 第 22 行 | "enivorment" 拼写错误 | 按本意译为“环境变量” |
+| `foundry/exercises/swap_v3_v4.md` 第 18 行、`universal_router.md` 第 31 行 | 行内代码 `UniverswalRouter.execute` 拼写错误 | 行内代码保持原样 |
+| `foundry/exercises/reader.md` 第 23 行 | "store in" 应为 "stored in" | 按本意翻译 |
+| `foundry/exercises/liquidation.md` 第 16 行 | 称闪电贷期间 PoolManager "becomes locked"，实际回调期间为 unlocked，嵌套 `unlock` 会 revert | 照原文直译 |
+| `notes/course_intro.md` 第 8 行 | "Auxillary" 应为 "Auxiliary" | 按本意译为“辅助合约” |
+| `notes/course_setup.md` 第 5–7 行 | GitHub 绝对 URL 缺少 `/tree/main/` 或 `/blob/main/`，可能无法打开 | URL 保持原样 |
+
+## 八、进度日志
 
 - 2026-11-01：完成文件统计，创建本文档，分派 16 个子代理并行翻译
 - 2026-11-01 15:01：A12 汇报完成，主代理复核 2/2 个文件通过；仅剩注释掉的 import 提示，可忽略
@@ -218,3 +242,4 @@
 - 2026-11-01 15:02：A01 汇报完成，主代理复核 5/5 个文件通过
 - 2026-11-01 15:02：A06 汇报完成，主代理复核 12/12 个文件通过
 - 2026-11-01 15:03：A07 汇报完成，主代理复核 12/12 个文件通过
+- 2026-11-01：100/100 个文件全部复核通过；分派 A17 做跨文件译法一致性校对
