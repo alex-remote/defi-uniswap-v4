@@ -20,7 +20,7 @@ contract Router is TStore, IUnlockCallback {
     using SafeCast for uint128;
     using CurrencyLib for address;
 
-    // Actions
+    // 操作类型
     uint256 private constant SWAP_EXACT_IN_SINGLE = 0x06;
     uint256 private constant SWAP_EXACT_IN = 0x07;
     uint256 private constant SWAP_EXACT_OUT_SINGLE = 0x08;
@@ -54,8 +54,8 @@ contract Router is TStore, IUnlockCallback {
 
     struct ExactInputParams {
         address currencyIn;
-        // First element + currencyIn determines the first pool to swap
-        // Last element + previous path element's currency determines the last pool to swap
+        // 第一个元素 + currencyIn 确定要兑换的第一个池子
+        // 最后一个元素 + 前一个路径元素的代币确定要兑换的最后一个池子
         PathKey[] path;
         uint128 amountIn;
         uint128 amountOutMin;
@@ -63,8 +63,8 @@ contract Router is TStore, IUnlockCallback {
 
     struct ExactOutputParams {
         address currencyOut;
-        // Last element + currencyOut determines the last pool to swap
-        // First element + second path element's currency determines the first pool to swap
+        // 最后一个元素 + currencyOut 确定要兑换的最后一个池子
+        // 第一个元素 + 第二个路径元素的代币确定要兑换的第一个池子
         PathKey[] path;
         uint128 amountOut;
         uint128 amountInMax;
@@ -199,11 +199,11 @@ contract Router is TStore, IUnlockCallback {
                 (int128 amount0, int128 amount1) =
                     _swap(key, zeroForOne, -amountIn, path.hookData);
 
-                // Next params
+                // 下一轮迭代的参数
                 currencyIn = path.currency;
                 amountIn = (zeroForOne ? amount1 : amount0).toInt256();
             }
-            // currencyIn and amountIn stores currency out and amount out
+            // 此时 currencyIn 和 amountIn 存储的是输出代币和输出数量
             require(
                 uint256(amountIn) >= uint256(params.amountOutMin),
                 "amount out < min"
@@ -245,12 +245,12 @@ contract Router is TStore, IUnlockCallback {
                 (int128 amount0, int128 amount1) =
                     _swap(key, zeroForOne, amountOut, path.hookData);
 
-                // Next params
+                // 下一轮迭代的参数
                 currencyOut = path.currency;
                 amountOut = (zeroForOne ? -amount0 : -amount1).toInt256();
             }
 
-            // currencyOut and amountOut stores currency in and amount in
+            // 此时 currencyOut 和 amountOut 存储的是输入代币和输入数量
             require(
                 uint256(amountOut) <= uint256(params.amountInMax),
                 "amount in > max"
@@ -358,12 +358,12 @@ contract Router is TStore, IUnlockCallback {
             key: key,
             params: SwapParams({
                 zeroForOne: zeroForOne,
-                // amountSpecified < 0 = amount in
-                // amountSpecified > 0 = amount out
+                // amountSpecified < 0 = 输入数量
+                // amountSpecified > 0 = 输出数量
                 amountSpecified: amountSpecified,
-                // price = Currency 1 / currency 0
-                // 0 for 1 = price decreases
-                // 1 for 0 = price increases
+                // 价格 = 代币 1 / 代币 0
+                // 0 换 1 = 价格下降
+                // 1 换 0 = 价格上升
                 sqrtPriceLimitX96: zeroForOne ? MIN_SQRT_PRICE + 1 : MAX_SQRT_PRICE - 1
             }),
             hookData: hookData

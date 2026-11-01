@@ -20,7 +20,7 @@ contract Router is TStore, IUnlockCallback {
     using SafeCast for uint128;
     using CurrencyLib for address;
 
-    // Actions
+    // 操作类型
     uint256 private constant SWAP_EXACT_IN_SINGLE = 0x06;
     uint256 private constant SWAP_EXACT_IN = 0x07;
     uint256 private constant SWAP_EXACT_OUT_SINGLE = 0x08;
@@ -54,8 +54,8 @@ contract Router is TStore, IUnlockCallback {
 
     struct ExactInputParams {
         address currencyIn;
-        // First element + currencyIn determines the first pool to swap
-        // Last element + previous path element's currency determines the last pool to swap
+        // 第一个元素 + currencyIn 确定要兑换的第一个池子
+        // 最后一个元素 + 前一个路径元素的代币确定要兑换的最后一个池子
         PathKey[] path;
         uint128 amountIn;
         uint128 amountOutMin;
@@ -63,8 +63,8 @@ contract Router is TStore, IUnlockCallback {
 
     struct ExactOutputParams {
         address currencyOut;
-        // Last element + currencyOut determines the last pool to swap
-        // First element + second path element's currency determines the first pool to swap
+        // 最后一个元素 + currencyOut 确定要兑换的最后一个池子
+        // 第一个元素 + 第二个路径元素的代币确定要兑换的第一个池子
         PathKey[] path;
         uint128 amountOut;
         uint128 amountInMax;
@@ -89,7 +89,7 @@ contract Router is TStore, IUnlockCallback {
         returns (bytes memory)
     {
         uint256 action = _getAction();
-        // Write your code here
+        // 在此编写你的代码
         revert UnsupportedAction(action);
     }
 
@@ -99,7 +99,7 @@ contract Router is TStore, IUnlockCallback {
         setAction(SWAP_EXACT_IN_SINGLE)
         returns (uint256 amountOut)
     {
-        // Write your code here
+        // 在此编写你的代码
     }
 
     function swapExactOutputSingle(ExactOutputSingleParams calldata params)
@@ -108,7 +108,7 @@ contract Router is TStore, IUnlockCallback {
         setAction(SWAP_EXACT_OUT_SINGLE)
         returns (uint256 amountIn)
     {
-        // Write your code here
+        // 在此编写你的代码
     }
 
     function swapExactInput(ExactInputParams calldata params)
@@ -117,7 +117,7 @@ contract Router is TStore, IUnlockCallback {
         setAction(SWAP_EXACT_IN)
         returns (uint256 amountOut)
     {
-        // Write your code here
+        // 在此编写你的代码
     }
 
     function swapExactOutput(ExactOutputParams calldata params)
@@ -126,6 +126,6 @@ contract Router is TStore, IUnlockCallback {
         setAction(SWAP_EXACT_OUT)
         returns (uint256 amountIn)
     {
-        // Write your code here
+        // 在此编写你的代码
     }
 }

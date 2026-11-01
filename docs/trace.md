@@ -35,7 +35,7 @@
 | A09 | LimitOrder（练习 + 答案） | 2 | 729 | ⏳ 进行中 |
 | A10 | Liquidate（练习 + 答案） | 2 | 311 | ⏳ 进行中 |
 | A11 | Posm（练习 + 答案） | 2 | 261 | ⏳ 进行中 |
-| A12 | Router（练习 + 答案） | 2 | 524 | ⏳ 进行中 |
+| A12 | Router（练习 + 答案） | 2 | 524 | ✅ 已完成 |
 | A13 | SwapV3ToV4 / Reposition / Swap / Subscriber（练习 + 答案） | 8 | 712 | ⏳ 进行中 |
 | A14 | CounterHook / Flash / UniversalRouter / Reader（练习 + 答案） | 8 | 659 | ⏳ 进行中 |
 | A15 | 测试 PosmHelper / LimitOrder / Router / Tick | 4 | 1063 | ⏳ 进行中 |
@@ -93,7 +93,7 @@
 - [ ] `foundry/src/exercises/Posm.sol` — 96 行 · 待译注释约 13 行 · A11
 - [ ] `foundry/src/exercises/Reader.sol` — 34 行 · 待译注释约 1 行 · A14
 - [ ] `foundry/src/exercises/Reposition.sol` — 38 行 · 待译注释约 2 行 · A13
-- [ ] `foundry/src/exercises/Router.sol` — 131 行 · 待译注释约 11 行 · A12
+- [x] `foundry/src/exercises/Router.sol` — 131 行 · 待译注释约 11 行 · A12 · 译后 131 行 ✅
 - [ ] `foundry/src/exercises/Subscriber.sol` — 87 行 · 待译注释约 8 行 · A13
 - [ ] `foundry/src/exercises/Swap.sol` — 54 行 · 待译注释约 3 行 · A13
 - [ ] `foundry/src/exercises/SwapV3ToV4.sol` — 74 行 · 待译注释约 5 行 · A13
@@ -144,7 +144,7 @@
 - [ ] `foundry/src/solutions/Posm.sol` — 165 行 · 待译注释约 26 行 · A11
 - [ ] `foundry/src/solutions/Reader.sol` — 35 行 · 仅 SPDX 声明，无需改动 · A14
 - [ ] `foundry/src/solutions/Reposition.sol` — 80 行 · 待译注释约 13 行 · A13
-- [ ] `foundry/src/solutions/Router.sol` — 393 行 · 待译注释约 15 行 · A12
+- [x] `foundry/src/solutions/Router.sol` — 393 行 · 待译注释约 15 行 · A12 · 译后 393 行 ✅
 - [ ] `foundry/src/solutions/Subscriber.sol` — 109 行 · 待译注释约 6 行 · A13
 - [ ] `foundry/src/solutions/Swap.sol` — 124 行 · 待译注释约 7 行 · A13
 - [ ] `foundry/src/solutions/SwapV3ToV4.sol` — 146 行 · 待译注释约 19 行 · A13
@@ -202,3 +202,4 @@
 ## 七、进度日志
 
 - 2026-11-01：完成文件统计，创建本文档，分派 16 个子代理并行翻译
+- 2026-11-01 15:01：A12 汇报完成，主代理复核 2/2 个文件通过；仅剩注释掉的 import 提示，可忽略
