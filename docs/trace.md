@@ -1,0 +1,204 @@
+# 英文注释翻译 · 任务进度跟踪
+
+> 本文档由主代理维护，用于同步各子代理的翻译进度。文件未翻译时勾选框留空，子代理汇报完成且主代理复核通过后勾选。
+
+## 一、任务说明
+
+- 基准提交：`c4758a8`（`main`），工作分支：`defi-v4_zh`
+- `.sol` / `.gitignore`：在英文注释原位置直接替换为中文，**翻译前后行数保持不变**，代码、字符串、`SPDX-License-Identifier` 均不改动
+- `.md`：原件保持不变，在同一路径下新建 `<原文件名>_zh.md` 翻译件，与原件逐行对应、行数一致
+- 保留专有名词与代码内的明确指代（函数名、变量名、合约名、NatSpec 标签及参数名、URL 等）
+
+## 二、统计汇总
+
+| 类型 | 文件数 | 总行数 | 说明 |
+| --- | ---: | ---: | --- |
+| Solidity `.sol` | 81 | 7255 | 原位翻译注释；其中 16 个文件仅含 SPDX 声明，无需改动但仍需复核 |
+| Markdown `.md` | 18 | 938 | 新建 `_zh.md` 翻译件 |
+| 其他（`.gitignore`） | 1 | 15 | 原位翻译 `#` 注释 |
+| **合计** | **100** | **8208** | 待译注释行（`.sol`，含注释掉的代码，粗略统计）约 640 行 |
+
+> 行数统计口径同 `wc -l`（换行符个数）。
+
+## 三、子代理分工与进度
+
+| 子代理 | 负责范围 | 文件数 | 总行数 | 状态 |
+| --- | --- | ---: | ---: | --- |
+| A01 | 根目录 README、foundry/README、notes 下的 .md | 5 | 210 | ⏳ 进行中 |
+| A02 | 练习文档 limit_order / counter / flash | 3 | 241 | ⏳ 进行中 |
+| A03 | 练习文档 swap_router / subscriber / liquidation | 3 | 238 | ⏳ 进行中 |
+| A04 | 其余 7 个练习文档 | 7 | 249 | ⏳ 进行中 |
+| A05 | 接口 IStateView / INotifier / ISubscriber | 3 | 261 | ⏳ 进行中 |
+| A06 | 其余接口（含 aave-v3） | 12 | 456 | ⏳ 进行中 |
+| A07 | libraries 全部 | 12 | 595 | ⏳ 进行中 |
+| A08 | types、Constants、TStore、examples、aave-v3、MixedRouteQuoterV2Example、.gitignore | 13 | 488 | ⏳ 进行中 |
+| A09 | LimitOrder（练习 + 答案） | 2 | 729 | ⏳ 进行中 |
+| A10 | Liquidate（练习 + 答案） | 2 | 311 | ⏳ 进行中 |
+| A11 | Posm（练习 + 答案） | 2 | 261 | ⏳ 进行中 |
+| A12 | Router（练习 + 答案） | 2 | 524 | ⏳ 进行中 |
+| A13 | SwapV3ToV4 / Reposition / Swap / Subscriber（练习 + 答案） | 8 | 712 | ⏳ 进行中 |
+| A14 | CounterHook / Flash / UniversalRouter / Reader（练习 + 答案） | 8 | 659 | ⏳ 进行中 |
+| A15 | 测试 PosmHelper / LimitOrder / Router / Tick | 4 | 1063 | ⏳ 进行中 |
+| A16 | 其余 14 个测试文件 | 14 | 1211 | ⏳ 进行中 |
+
+## 四、文件清单
+
+### `/（仓库根目录）`
+
+- [ ] `README.md` — 148 行 → `README_zh.md` · A01
+
+### `foundry`
+
+- [ ] `foundry/.gitignore` — 15 行 · `#` 注释 4 行 · A08
+- [ ] `foundry/README.md` — 25 行 → `foundry/README_zh.md` · A01
+
+### `foundry/exercises`
+
+- [ ] `foundry/exercises/MixedRouteQuoterV2Example.sol` — 47 行 · 仅 SPDX 声明，无需改动 · A08
+- [ ] `foundry/exercises/counter.md` — 63 行 → `foundry/exercises/counter_zh.md` · A02
+- [ ] `foundry/exercises/flash.md` — 42 行 → `foundry/exercises/flash_zh.md` · A02
+- [ ] `foundry/exercises/limit_order.md` — 136 行 → `foundry/exercises/limit_order_zh.md` · A02
+- [ ] `foundry/exercises/liquidation.md` — 62 行 → `foundry/exercises/liquidation_zh.md` · A03
+- [ ] `foundry/exercises/posm.md` — 55 行 → `foundry/exercises/posm_zh.md` · A04
+- [ ] `foundry/exercises/quoter.md` — 38 行 → `foundry/exercises/quoter_zh.md` · A04
+- [ ] `foundry/exercises/reader.md` — 29 行 → `foundry/exercises/reader_zh.md` · A04
+- [ ] `foundry/exercises/reposition.md` — 23 行 → `foundry/exercises/reposition_zh.md` · A04
+- [ ] `foundry/exercises/subscriber.md` — 71 行 → `foundry/exercises/subscriber_zh.md` · A03
+- [ ] `foundry/exercises/swap.md` — 41 行 → `foundry/exercises/swap_zh.md` · A04
+- [ ] `foundry/exercises/swap_router.md` — 105 行 → `foundry/exercises/swap_router_zh.md` · A03
+- [ ] `foundry/exercises/swap_v3_v4.md` — 25 行 → `foundry/exercises/swap_v3_v4_zh.md` · A04
+- [ ] `foundry/exercises/universal_router.md` — 38 行 → `foundry/exercises/universal_router_zh.md` · A04
+
+### `foundry/src`
+
+- [ ] `foundry/src/Constants.sol` — 42 行 · 待译注释约 3 行 · A08
+- [ ] `foundry/src/TStore.sol` — 27 行 · 待译注释约 1 行 · A08
+
+### `foundry/src/aave-v3`
+
+- [ ] `foundry/src/aave-v3/Flash.sol` — 51 行 · 仅 SPDX 声明，无需改动 · A08
+- [ ] `foundry/src/aave-v3/Liquidator.sol` — 39 行 · 仅 SPDX 声明，无需改动 · A08
+
+### `foundry/src/examples`
+
+- [ ] `foundry/src/examples/pool_id.sol` — 47 行 · 待译注释约 7 行 · A08
+- [ ] `foundry/src/examples/transient_storage.sol` — 81 行 · 待译注释约 5 行 · A08
+
+### `foundry/src/exercises`
+
+- [ ] `foundry/src/exercises/CounterHook.sol` — 159 行 · 待译注释约 4 行 · A14
+- [ ] `foundry/src/exercises/Flash.sol` — 42 行 · 待译注释约 4 行 · A14
+- [ ] `foundry/src/exercises/LimitOrder.sol` — 247 行 · 待译注释约 16 行 · A09
+- [ ] `foundry/src/exercises/Liquidate.sol` — 127 行 · 待译注释约 14 行 · A10
+- [ ] `foundry/src/exercises/Posm.sol` — 96 行 · 待译注释约 13 行 · A11
+- [ ] `foundry/src/exercises/Reader.sol` — 34 行 · 待译注释约 1 行 · A14
+- [ ] `foundry/src/exercises/Reposition.sol` — 38 行 · 待译注释约 2 行 · A13
+- [ ] `foundry/src/exercises/Router.sol` — 131 行 · 待译注释约 11 行 · A12
+- [ ] `foundry/src/exercises/Subscriber.sol` — 87 行 · 待译注释约 8 行 · A13
+- [ ] `foundry/src/exercises/Swap.sol` — 54 行 · 待译注释约 3 行 · A13
+- [ ] `foundry/src/exercises/SwapV3ToV4.sol` — 74 行 · 待译注释约 5 行 · A13
+- [ ] `foundry/src/exercises/UniversalRouter.sol` — 65 行 · 待译注释约 3 行 · A14
+
+### `foundry/src/interfaces`
+
+- [ ] `foundry/src/interfaces/IERC20.sol` — 18 行 · 仅 SPDX 声明，无需改动 · A06
+- [ ] `foundry/src/interfaces/IExtsload.sol` — 27 行 · 待译注释约 11 行 · A06
+- [ ] `foundry/src/interfaces/IExttload.sol` — 18 行 · 待译注释约 7 行 · A06
+- [ ] `foundry/src/interfaces/INotifier.sol` — 59 行 · 待译注释约 29 行 · A05
+- [ ] `foundry/src/interfaces/IPermit2.sol` — 64 行 · 待译注释约 19 行 · A06
+- [ ] `foundry/src/interfaces/IPoolManager.sol` — 88 行 · 待译注释约 12 行 · A06
+- [ ] `foundry/src/interfaces/IPositionManager.sol` — 47 行 · 待译注释约 4 行 · A06
+- [ ] `foundry/src/interfaces/IStateView.sol` — 155 行 · 待译注释约 70 行 · A05
+- [ ] `foundry/src/interfaces/ISubscriber.sol` — 47 行 · 待译注释约 24 行 · A05
+- [ ] `foundry/src/interfaces/IUniversalRouter.sol` — 29 行 · 待译注释约 9 行 · A06
+- [ ] `foundry/src/interfaces/IUnlockCallback.sol` — 12 行 · 待译注释约 4 行 · A06
+- [ ] `foundry/src/interfaces/IV4Router.sol` — 59 行 · 待译注释约 8 行 · A06
+- [ ] `foundry/src/interfaces/IWETH.sol` — 9 行 · 仅 SPDX 声明，无需改动 · A06
+
+### `foundry/src/interfaces/aave-v3`
+
+- [ ] `foundry/src/interfaces/aave-v3/IAaveOracle.sol` — 7 行 · 待译注释约 1 行 · A06
+- [ ] `foundry/src/interfaces/aave-v3/IPool.sol` — 78 行 · 仅 SPDX 声明，无需改动 · A06
+
+### `foundry/src/libraries`
+
+- [ ] `foundry/src/libraries/ActionConstants.sol` — 21 行 · 待译注释约 9 行 · A07
+- [ ] `foundry/src/libraries/Actions.sol` — 49 行 · 待译注释约 13 行 · A07
+- [ ] `foundry/src/libraries/Commands.sol` — 45 行 · 待译注释约 13 行 · A07
+- [ ] `foundry/src/libraries/CurrencyLib.sol` — 42 行 · 仅 SPDX 声明，无需改动 · A07
+- [ ] `foundry/src/libraries/HookMiner.sol` — 70 行 · 待译注释约 19 行 · A07
+- [ ] `foundry/src/libraries/Hooks.sol` — 90 行 · 仅 SPDX 声明，无需改动 · A07
+- [ ] `foundry/src/libraries/Permit2Hash.sol` — 53 行 · 待译注释约 2 行 · A07
+- [ ] `foundry/src/libraries/PositionInfoLibrary.sol` — 103 行 · 待译注释约 1 行 · A07
+- [ ] `foundry/src/libraries/SafeCast.sol` — 18 行 · 仅 SPDX 声明，无需改动 · A07
+- [ ] `foundry/src/libraries/SafeTransfer.sol` — 35 行 · 仅 SPDX 声明，无需改动 · A07
+- [ ] `foundry/src/libraries/StateLibrary.sol` — 47 行 · 待译注释约 10 行 · A07
+- [ ] `foundry/src/libraries/TransientState.sol` — 22 行 · 仅 SPDX 声明，无需改动 · A07
+
+### `foundry/src/solutions`
+
+- [ ] `foundry/src/solutions/CounterHook.sol` — 163 行 · 待译注释约 4 行 · A14
+- [ ] `foundry/src/solutions/Flash.sol` — 61 行 · 待译注释约 5 行 · A14
+- [ ] `foundry/src/solutions/LimitOrder.sol` — 482 行 · 待译注释约 15 行 · A09
+- [ ] `foundry/src/solutions/Liquidate.sol` — 184 行 · 待译注释约 20 行 · A10
+- [ ] `foundry/src/solutions/Posm.sol` — 165 行 · 待译注释约 26 行 · A11
+- [ ] `foundry/src/solutions/Reader.sol` — 35 行 · 仅 SPDX 声明，无需改动 · A14
+- [ ] `foundry/src/solutions/Reposition.sol` — 80 行 · 待译注释约 13 行 · A13
+- [ ] `foundry/src/solutions/Router.sol` — 393 行 · 待译注释约 15 行 · A12
+- [ ] `foundry/src/solutions/Subscriber.sol` — 109 行 · 待译注释约 6 行 · A13
+- [ ] `foundry/src/solutions/Swap.sol` — 124 行 · 待译注释约 7 行 · A13
+- [ ] `foundry/src/solutions/SwapV3ToV4.sol` — 146 行 · 待译注释约 19 行 · A13
+- [ ] `foundry/src/solutions/UniversalRouter.sol` — 100 行 · 待译注释约 7 行 · A14
+
+### `foundry/src/types`
+
+- [ ] `foundry/src/types/BalanceDelta.sol` — 32 行 · 待译注释约 4 行 · A08
+- [ ] `foundry/src/types/BeforeSwapDelta.sol` — 47 行 · 待译注释约 9 行 · A08
+- [ ] `foundry/src/types/PoolId.sol` — 21 行 · 待译注释约 3 行 · A08
+- [ ] `foundry/src/types/PoolKey.sol` — 16 行 · 待译注释约 6 行 · A08
+- [ ] `foundry/src/types/PoolOperation.sol` — 23 行 · 待译注释约 8 行 · A08
+
+### `foundry/test`
+
+- [ ] `foundry/test/CounterHook.test.sol` — 197 行 · 待译注释约 6 行 · A16
+- [ ] `foundry/test/FindHookSalt.test.sol` — 63 行 · 待译注释约 3 行 · A16
+- [ ] `foundry/test/Flash.test.sol` — 44 行 · 仅 SPDX 声明，无需改动 · A16
+- [ ] `foundry/test/LimitOrder.test.sol` — 385 行 · 待译注释约 25 行 · A15
+- [ ] `foundry/test/Liquidate.test.sol` — 91 行 · 待译注释约 6 行 · A16
+- [ ] `foundry/test/Posm.test.sol` — 168 行 · 待译注释约 6 行 · A16
+- [ ] `foundry/test/PosmHelper.sol` — 207 行 · 待译注释约 27 行 · A15
+- [ ] `foundry/test/Reader.test.sol` — 49 行 · 待译注释约 1 行 · A16
+- [ ] `foundry/test/Reposition.test.sol` — 98 行 · 仅 SPDX 声明，无需改动 · A16
+- [ ] `foundry/test/Router.test.sol` — 364 行 · 待译注释约 9 行 · A15
+- [ ] `foundry/test/Subscriber.test.sol` — 77 行 · 仅 SPDX 声明，无需改动 · A16
+- [ ] `foundry/test/Swap.test.sol` — 92 行 · 待译注释约 2 行 · A16
+- [ ] `foundry/test/SwapV3ToV4.test.sol` — 111 行 · 待译注释约 4 行 · A16
+- [ ] `foundry/test/TestHelper.sol` — 22 行 · 仅 SPDX 声明，无需改动 · A16
+- [ ] `foundry/test/TestUtil.sol` — 26 行 · 待译注释约 2 行 · A16
+- [ ] `foundry/test/Tick.test.sol` — 107 行 · 待译注释约 9 行 · A15
+- [ ] `foundry/test/UniversalRouter.test.sol` — 88 行 · 待译注释约 2 行 · A16
+- [ ] `foundry/test/UniversalRouterPermit2.test.sol` — 85 行 · 待译注释约 6 行 · A16
+
+### `notes`
+
+- [ ] `notes/course_intro.md` — 22 行 → `notes/course_intro_zh.md` · A01
+- [ ] `notes/course_setup.md` — 7 行 → `notes/course_setup_zh.md` · A01
+- [ ] `notes/v4.md` — 8 行 → `notes/v4_zh.md` · A01
+
+## 五、排除范围
+
+- `foundry/lib/forge-std`：第三方 git 子模块（未检出），不属于教程内容
+- `*.png`、`*.excalidraw`：图片与绘图数据，非源码注释
+- `.gitignore`（根目录）、`.gitmodules`、`foundry/foundry.toml`、`foundry/.github/workflows/test.yml`、`foundry/.env.sample`：不含英文注释
+
+## 六、复核方式
+
+主代理对每个子代理汇报的文件逐一运行校验脚本，确认：
+
+1. 行数与 `HEAD` 版本一致（`.md` 为翻译件与原件一致）
+2. 去除注释后的代码逐行完全一致（`.md` 为代码围栏位置及代码块内非注释行一致）
+3. 英文原件 `.md` 未被改动
+
+## 七、进度日志
+
+- 2026-11-01：完成文件统计，创建本文档，分派 16 个子代理并行翻译
