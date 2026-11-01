@@ -27,10 +27,10 @@ import {
 import {LimitOrder} from "@exercises/LimitOrder.sol";
 
 /*
-1. Run test/FindHookSalt.test.sol to find salt
-2. Set salt
+1. 运行 test/FindHookSalt.test.sol 找到 salt
+2. 设置 salt
 export SALT=
-3. Run this test
+3. 运行本测试
 forge test --fork-url $FORK_URL --match-path test/LimitOrder.test.sol -vvv
 */
 
@@ -48,7 +48,7 @@ contract LimitOrderTest is Test, TestUtil {
 
     int24 constant TICK_SPACING = 10;
     uint128 constant LIQUIDITY = 1e18;
-    // Initial tick
+    // 初始 tick
     int24 tick0;
 
     uint256 constant SWAP = 1;
@@ -75,11 +75,11 @@ contract LimitOrderTest is Test, TestUtil {
             hooks: address(hook)
         });
 
-        // sqrt(token 1 / token 0) x 2**96 = 1 ETH = 3000 USDC
+        // sqrt(token 1 / token 0) x 2**96，对应价格 1 ETH = 3000 USDC
         uint160 sqrtPriceX96 = 4347826086925359274971250;
         poolManager.initialize(key, sqrtPriceX96);
 
-        // Check tick is stored
+        // 检查 tick 已被存储
         tick0 = getTick(key.toId());
         assertEq(hook.ticks(key.toId()), tick0, "initial tick");
 
@@ -149,7 +149,7 @@ contract LimitOrderTest is Test, TestUtil {
                 hookData: ""
             });
 
-            // Take and settle
+            // 提取并结算
             BalanceDelta delta = BalanceDelta.wrap(d);
             int128 amount0 = delta.amount0();
             int128 amount1 = delta.amount1();
@@ -204,7 +204,7 @@ contract LimitOrderTest is Test, TestUtil {
         int24 upper = lower + TICK_SPACING;
         bool zeroForOne = true;
 
-        // Test revert if lower tick is not a multiple of tick spacing
+        // 测试：下界 tick 不是 tick 间距的整数倍时应 revert
         vm.expectRevert();
         vm.prank(users[0]);
         hook.place(key, lower + 1, false, 1e17);
@@ -228,7 +228,7 @@ contract LimitOrderTest is Test, TestUtil {
             helper.delta("After place USDC", "Before place USDC")
         );
 
-        // Check position liquidity increased
+        // 检查头寸流动性已增加
         uint128 posLiq = 0;
         (posLiq,,) = stateView.getPositionInfo(
             key.toId(), address(hook), lower, upper, bytes32(0)
@@ -260,16 +260,16 @@ contract LimitOrderTest is Test, TestUtil {
         vm.prank(users[0]);
         hook.place{value: users[0].balance}(key, lower, zeroForOne, liq);
 
-        // Test cannot take before bucket is filled
+        // 测试：桶（bucket）成交之前不能 take
         vm.expectRevert();
         vm.prank(users[0]);
         hook.take(key, lower, zeroForOne, 0);
 
-        // Swap
+        // 兑换
         action = SWAP;
         poolManager.unlock(abi.encode(uint256(1e18), !zeroForOne));
 
-        // Test take
+        // 测试 take
         helper.set("Before take ETH", users[0].balance);
         helper.set("Before take USDC", usdc.balanceOf(users[0]));
 
@@ -288,14 +288,14 @@ contract LimitOrderTest is Test, TestUtil {
             helper.delta("After take USDC", "Before take USDC")
         );
 
-        // Check user balances
+        // 检查用户余额
         assertGt(
             helper.get("After take USDC"),
             helper.get("Before take USDC"),
             "USDC"
         );
 
-        // Test cannot take twice
+        // 测试：不能 take 两次
         vm.expectRevert();
         vm.prank(users[0]);
         hook.take(key, lower, zeroForOne, 0);
@@ -343,7 +343,7 @@ contract LimitOrderTest is Test, TestUtil {
             "USDC"
         );
 
-        // Test cannot cancel twice
+        // 测试：不能 cancel 两次
         vm.expectRevert();
         vm.prank(users[0]);
         hook.cancel(key, lower, zeroForOne);
@@ -361,7 +361,7 @@ contract LimitOrderTest is Test, TestUtil {
         vm.prank(users[0]);
         hook.place(key, lower, zeroForOne, liq);
 
-        // Test cannot cancel if bucket is filled
+        // 测试：桶（bucket）已成交时不能 cancel
         action = SWAP;
         poolManager.unlock(abi.encode(uint256(12 * 1e18), !zeroForOne));
 

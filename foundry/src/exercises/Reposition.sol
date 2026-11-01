@@ -30,9 +30,9 @@ contract Reposition {
 
         address owner = posm.ownerOf(tokenId);
 
-        // Get pool key
+        // 获取池子的 PoolKey
         (PoolKey memory key,) = posm.getPoolAndPositionInfo(tokenId);
 
-        // Write your code here
+        // 在此编写你的代码
     }
 }

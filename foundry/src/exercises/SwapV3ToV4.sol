@@ -15,7 +15,7 @@ contract SwapV3ToV4 {
 
     receive() external payable {}
 
-    // Swap token A -> V3 -> token B -> V4 -> token C
+    // 兑换路径：代币 A -> V3 -> 代币 B -> V4 -> 代币 C
     struct V3Params {
         address tokenIn;
         address tokenOut;
@@ -29,13 +29,13 @@ contract SwapV3ToV4 {
     }
 
     function swap(V3Params calldata v3, V4Params calldata v4) external {
-        // Disable WETH pools to keep the code simple
+        // 禁用 WETH 池子，以保持代码简单
         require(
             v4.key.currency0 != WETH && v4.key.currency1 != WETH,
             "WETH pools disabled"
         );
 
-        // Map address(0) to WETH
+        // 将 address(0) 映射为 WETH
         (address v4Token0, address v4Token1) =
             (v4.key.currency0, v4.key.currency1);
         if (v4Token0 == address(0)) {
@@ -50,9 +50,9 @@ contract SwapV3ToV4 {
             ? (v4.key.currency0, v4.key.currency1)
             : (v4.key.currency1, v4.key.currency0);
 
-        // Write your code here
+        // 在此编写你的代码
 
-        // UniversalRouter commands and inputs
+        // UniversalRouter 的命令（commands）与输入（inputs）
         bytes memory commands;
         bytes[] memory inputs;
     }

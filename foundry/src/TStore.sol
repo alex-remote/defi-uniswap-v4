@@ -5,7 +5,7 @@ contract TStore {
     bytes32 constant SLOT = 0;
 
     modifier setAction(uint256 action) {
-        // Use as re-entrancy guard
+        // 用作重入锁
         require(_getAction() == 0, "locked");
         require(action > 0, "action = 0");
         _setAction(action);

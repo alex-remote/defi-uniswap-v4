@@ -10,7 +10,7 @@ import {PoolId, PoolIdLibrary} from "../types/PoolId.sol";
 import {POSITION_MANAGER, USDC, PERMIT2} from "../Constants.sol";
 
 contract Token {
-    // Pool id => owner => uint256
+    // 池子 id => 所有者 => uint256
     mapping(bytes32 => mapping(address => uint256)) public balanceOf;
 
     function _mint(bytes32 poolId, address dst, uint256 amount) internal {
@@ -44,10 +44,10 @@ contract Subscriber is ISubscriber, Token {
         view
         returns (bytes32 poolId, address owner, uint128 liquidity)
     {
-        // NOTE: data are deleted before notifyUnsubscribe and notifyBurn
+        // NOTE: 数据会在调用 notifyUnsubscribe 和 notifyBurn 之前被删除
         (PoolKey memory key,) = posm.getPoolAndPositionInfo(tokenId);
         poolId = PoolId.unwrap(key.toId());
-        // NOTE: ownerOf reverts if tokenId doesn't exist
+        // NOTE: 若 tokenId 不存在，ownerOf 会 revert
         owner = posm.ownerOf(tokenId);
         liquidity = posm.getPositionLiquidity(tokenId);
     }
@@ -56,11 +56,11 @@ contract Subscriber is ISubscriber, Token {
         external
         onlyPositionManager
     {
-        // Write your code here
+        // 在此编写你的代码
     }
 
     function notifyUnsubscribe(uint256 tokenId) external onlyPositionManager {
-        // Write your code here
+        // 在此编写你的代码
     }
 
     function notifyBurn(
@@ -70,7 +70,7 @@ contract Subscriber is ISubscriber, Token {
         uint256 liquidity,
         int256 feesAccrued
     ) external onlyPositionManager {
-        // Write your code here
+        // 在此编写你的代码
     }
 
     function notifyModifyLiquidity(
@@ -78,7 +78,7 @@ contract Subscriber is ISubscriber, Token {
         int256 liquidityChange,
         int256 feesAccrued
     ) external onlyPositionManager {
-        // Write your code here
+        // 在此编写你的代码
     }
 
     function min(uint256 x, uint256 y) private pure returns (uint256) {

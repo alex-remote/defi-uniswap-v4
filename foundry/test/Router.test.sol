@@ -14,7 +14,7 @@ contract RouterTest is Test, TestHelper {
 
     TestHelper helper;
     Router router;
-    // Pool key for single hop swaps
+    // 单跳兑换使用的池子 key
     PoolKey poolKey;
 
     receive() external payable {}
@@ -39,7 +39,7 @@ contract RouterTest is Test, TestHelper {
     }
 
     function test_swapExactInputSingle_ETH_USDC() public {
-        // Swap ETH to USDC
+        // 将 ETH 兑换为 USDC
         helper.set("Before swap USDC", usdc.balanceOf(address(this)));
         helper.set("Before swap ETH", address(this).balance);
 
@@ -71,7 +71,7 @@ contract RouterTest is Test, TestHelper {
     }
 
     function test_swapExactInputSingle_USDC_ETH() public {
-        // Swap USDC to ETH
+        // 将 USDC 兑换为 ETH
         helper.set("Before swap USDC", usdc.balanceOf(address(this)));
         helper.set("Before swap ETH", address(this).balance);
 
@@ -103,7 +103,7 @@ contract RouterTest is Test, TestHelper {
     }
 
     function test_swapExactOutputSingle_ETH_USDC() public {
-        // Swap ETH to USDC
+        // 将 ETH 兑换为 USDC
         helper.set("Before swap USDC", usdc.balanceOf(address(this)));
         helper.set("Before swap ETH", address(this).balance);
 
@@ -140,7 +140,7 @@ contract RouterTest is Test, TestHelper {
     }
 
     function test_swapExactOutputSingle_USDC_ETH() public {
-        // Swap USDC to ETH
+        // 将 USDC 兑换为 ETH
         helper.set("Before swap USDC", usdc.balanceOf(address(this)));
         helper.set("Before swap ETH", address(this).balance);
 
@@ -175,7 +175,7 @@ contract RouterTest is Test, TestHelper {
     }
 
     function test_swapExactInput_USDC_ETH_WBTC() public {
-        // Swap USDC -> ETH -> WBTC
+        // 兑换路径：USDC -> ETH -> WBTC
         helper.set("Before swap USDC", usdc.balanceOf(address(this)));
         helper.set("Before swap WBTC", wbtc.balanceOf(address(this)));
 
@@ -220,7 +220,7 @@ contract RouterTest is Test, TestHelper {
     }
 
     function test_swapExactInput_ETH_USDC_WBTC() public {
-        // Swap ETH -> USDC -> WBTC
+        // 兑换路径：ETH -> USDC -> WBTC
         helper.set("Before swap ETH", address(this).balance);
         helper.set("Before swap WBTC", wbtc.balanceOf(address(this)));
 
@@ -265,7 +265,7 @@ contract RouterTest is Test, TestHelper {
     }
 
     function test_swapExactOutput_USDC_ETH_WBTC() public {
-        // Swap USDC -> ETH -> WBTC
+        // 兑换路径：USDC -> ETH -> WBTC
         helper.set("Before swap USDC", usdc.balanceOf(address(this)));
         helper.set("Before swap WBTC", wbtc.balanceOf(address(this)));
 
@@ -313,7 +313,7 @@ contract RouterTest is Test, TestHelper {
     }
 
     function test_swapExactOutput_ETH_USDC_WBTC() public {
-        // Swap ETH -> USDC -> WBTC
+        // 兑换路径：ETH -> USDC -> WBTC
         helper.set("Before swap ETH", address(this).balance);
         helper.set("Before swap WBTC", wbtc.balanceOf(address(this)));
 

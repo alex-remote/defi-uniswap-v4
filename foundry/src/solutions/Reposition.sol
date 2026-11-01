@@ -30,10 +30,10 @@ contract Reposition {
 
         address owner = posm.ownerOf(tokenId);
 
-        // Get pool key
+        // 获取池子的 PoolKey
         (PoolKey memory key,) = posm.getPoolAndPositionInfo(tokenId);
 
-        // Reposition
+        // 调整头寸的价格区间（reposition）
         bytes memory actions = abi.encodePacked(
             uint8(Actions.BURN_POSITION),
             uint8(Actions.MINT_POSITION_FROM_DELTAS),
@@ -41,18 +41,18 @@ contract Reposition {
         );
         bytes[] memory params = new bytes[](3);
 
-        // BURN_POSITION params
+        // BURN_POSITION 的参数
         params[0] = abi.encode(
             tokenId,
             // amount0Min
             0,
             // amount1Min
             0,
-            // hook data
+            // hook 数据
             ""
         );
 
-        // MINT_POSITION_FROM_DELTAS params
+        // MINT_POSITION_FROM_DELTAS 的参数
         params[1] = abi.encode(
             key,
             tickLower,
@@ -63,12 +63,12 @@ contract Reposition {
             type(uint128).max,
             // owner
             owner,
-            // hook data
+            // hook 数据
             ""
         );
 
-        // TAKE_PAIR params
-        // currency 0, currency 1, recipient
+        // TAKE_PAIR 的参数
+        // 代币 0，代币 1，接收者
         params[2] = abi.encode(key.currency0, key.currency1, owner);
 
         newTokenId = posm.nextTokenId();

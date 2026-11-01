@@ -5,25 +5,25 @@ pragma solidity 0.8.30;
 // PositionInfo = uint256
 
 /// @title ISubscriber
-/// @notice Interface that a Subscriber contract should implement to receive updates from the v4 position manager
+/// @notice Subscriber 合约应实现的接口，用于接收来自 V4 PositionManager 的更新
 interface ISubscriber {
-    /// @notice Called when a position subscribes to this subscriber contract
-    /// @param tokenId the token ID of the position
-    /// @param data additional data passed in by the caller
+    /// @notice 当某个头寸订阅本订阅者合约时调用
+    /// @param tokenId 头寸的 token ID
+    /// @param data 调用者传入的附加数据
     function notifySubscribe(uint256 tokenId, bytes memory data) external;
 
-    /// @notice Called when a position unsubscribes from the subscriber
-    /// @dev This call's gas is capped at `unsubscribeGasLimit` (set at deployment)
-    /// @dev Because of EIP-150, solidity may only allocate 63/64 of gasleft()
-    /// @param tokenId the token ID of the position
+    /// @notice 当某个头寸取消订阅该订阅者时调用
+    /// @dev 此调用的 gas 上限为 `unsubscribeGasLimit`（部署时设定）
+    /// @dev 由于 EIP-150，solidity 可能只会分配 gasleft() 的 63/64
+    /// @param tokenId 头寸的 token ID
     function notifyUnsubscribe(uint256 tokenId) external;
 
-    /// @notice Called when a position is burned
-    /// @param tokenId the token ID of the position
-    /// @param owner the current owner of the tokenId
-    /// @param info information about the position
-    /// @param liquidity the amount of liquidity decreased in the position, may be 0
-    /// @param feesAccrued the fees accrued by the position if liquidity was decreased
+    /// @notice 当头寸被销毁时调用
+    /// @param tokenId 头寸的 token ID
+    /// @param owner 该 tokenId 的当前所有者
+    /// @param info 头寸的相关信息
+    /// @param liquidity 头寸中减少的流动性数量，可能为 0
+    /// @param feesAccrued 若流动性减少，头寸累积的手续费
     function notifyBurn(
         uint256 tokenId,
         address owner,
@@ -32,13 +32,13 @@ interface ISubscriber {
         int256 feesAccrued
     ) external;
 
-    /// @notice Called when a position modifies its liquidity or collects fees
-    /// @param tokenId the token ID of the position
-    /// @param liquidityChange the change in liquidity on the underlying position
-    /// @param feesAccrued the fees to be collected from the position as a result of the modifyLiquidity call
-    /// @dev Note that feesAccrued can be artificially inflated by a malicious user
-    /// Pools with a single liquidity position can inflate feeGrowthGlobal (and consequently feesAccrued) by donating to themselves;
-    /// atomically donating and collecting fees within the same unlockCallback may further inflate feeGrowthGlobal/feesAccrued
+    /// @notice 当头寸修改其流动性或收取手续费时调用
+    /// @param tokenId 头寸的 token ID
+    /// @param liquidityChange 底层头寸的流动性变化量
+    /// @param feesAccrued 因 modifyLiquidity 调用而将从头寸中收取的手续费
+    /// @dev 注意：feesAccrued 可能被恶意用户人为抬高
+    /// 只有单个流动性头寸的池子可以通过向自身捐赠（donate）来抬高 feeGrowthGlobal（进而抬高 feesAccrued）；
+    /// 在同一个 unlockCallback 中原子地捐赠并收取手续费，可能会进一步抬高 feeGrowthGlobal/feesAccrued
     function notifyModifyLiquidity(
         uint256 tokenId,
         int256 liquidityChange,

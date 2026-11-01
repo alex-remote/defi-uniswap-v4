@@ -3,7 +3,7 @@ pragma solidity 0.8.30;
 
 import {Test, console} from "forge-std/Test.sol";
 
-// Tick spacing
+// tick 间距
 int24 constant S = 10;
 
 contract TickLast {
@@ -12,9 +12,9 @@ contract TickLast {
         pure
         returns (int24 lower, int24 upper)
     {
-        // Last lower tick
+        // 上一个 tick 的下界 tick
         int24 l0 = getTickLower(tick0, tickSpacing);
-        // Current lower tick
+        // 当前 tick 的下界 tick
         int24 l1 = getTickLower(tick1, tickSpacing);
 
         if (tick0 <= tick1) {
@@ -32,7 +32,7 @@ contract TickLast {
         returns (int24)
     {
         int24 compressed = tick / tickSpacing;
-        // Round towards negative infinity
+        // 向负无穷方向取整
         if (tick < 0 && tick % tickSpacing != 0) compressed--;
         return compressed * tickSpacing;
     }
@@ -47,28 +47,28 @@ contract TickLastTest is Test {
 
     function test() public {
         int24[4][24] memory tests = [
-            // tick 0 <= tick 1
+            // 情形：tick 0 <= tick 1
             [int24(0), 0, 0, -10],
             [int24(0), 1, 0, -10],
             [int24(0), 10, 0, 0],
             [int24(0), 11, 0, 0],
             [int24(0), 20, 0, 10],
             [int24(0), 21, 0, 10],
-            // tick 0 <= tick 1
+            // 情形：tick 0 <= tick 1
             [int24(1), 1, 0, -10],
             [int24(1), 2, 0, -10],
             [int24(1), 10, 0, 0],
             [int24(1), 11, 0, 0],
             [int24(1), 20, 0, 10],
             [int24(1), 21, 0, 10],
-            // tick 1 > tick 0
+            // 情形：tick 1 > tick 0
             [int24(0), 0, 0, -10],
             [int24(0), -1, 0, 0],
             [int24(0), -10, 0, 0],
             [int24(0), -11, -10, 0],
             [int24(0), -20, -10, 0],
             [int24(0), -21, -20, 0],
-            // tick 1 > tick 0
+            // 情形：tick 1 > tick 0
             [int24(-1), -1, -10, -20],
             [int24(-1), -2, 0, -10],
             [int24(-1), -10, 0, -10],

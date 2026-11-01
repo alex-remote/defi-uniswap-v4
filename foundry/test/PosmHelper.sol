@@ -24,7 +24,7 @@ contract PosmHelper {
     bytes32 internal poolId;
     int24 internal constant TICK_SPACING = 10;
 
-    // currency0 = ETH for this exercise
+    // 本练习中 currency0 = ETH
     constructor() {
         IERC20(USDC).approve(PERMIT2, type(uint256).max);
         IPermit2(PERMIT2).approve(
@@ -55,28 +55,28 @@ contract PosmHelper {
         );
         bytes[] memory params = new bytes[](3);
 
-        // MINT_POSITION params
+        // MINT_POSITION 参数
         params[0] = abi.encode(
             key,
             tickLower,
             tickUpper,
             liquidity,
-            // amount0Max
+            // amount0Max（token0 的最大数量）
             type(uint128).max,
-            // amount1Max
+            // amount1Max（token1 的最大数量）
             type(uint128).max,
-            // owner
+            // owner（头寸所有者）
             address(this),
-            // hook data
+            // hook 数据
             ""
         );
 
-        // SETTLE_PAIR params
-        // currency 0 and 1
+        // SETTLE_PAIR 参数
+        // 代币 0 和代币 1
         params[1] = abi.encode(address(0), USDC);
 
-        // SWEEP params
-        // currency, address to
+        // SWEEP 参数
+        // 代币，接收地址 to
         params[2] = abi.encode(address(0), address(this));
 
         uint256 tokenId = posm.nextTokenId();
@@ -102,26 +102,26 @@ contract PosmHelper {
         );
         bytes[] memory params = new bytes[](4);
 
-        // INCREASE_LIQUIDITY params
+        // INCREASE_LIQUIDITY 参数
         params[0] = abi.encode(
             tokenId,
             liquidity,
             amount0Max,
             amount1Max,
-            // hook data
+            // hook 数据
             ""
         );
 
-        // CLOSE_CURRENCY params
-        // currency 0
+        // CLOSE_CURRENCY 参数
+        // 代币 0
         params[1] = abi.encode(address(0), USDC);
 
-        // CLOSE_CURRENCY params
-        // currency 1
+        // CLOSE_CURRENCY 参数
+        // 代币 1
         params[2] = abi.encode(USDC);
 
-        // SWEEP params
-        // currency, address to
+        // SWEEP 参数
+        // 代币，接收地址 to
         params[3] = abi.encode(address(0), address(this));
 
         posm.modifyLiquidities{value: address(this).balance}(
@@ -140,18 +140,18 @@ contract PosmHelper {
         );
         bytes[] memory params = new bytes[](2);
 
-        // DECREASE_LIQUIDITY params
+        // DECREASE_LIQUIDITY 参数
         params[0] = abi.encode(
             tokenId,
             liquidity,
             amount0Min,
             amount1Min,
-            // hook data
+            // hook 数据
             ""
         );
 
-        // TAKE_PAIR params
-        // currency 0, currency 1, recipient
+        // TAKE_PAIR 参数
+        // 代币 0，代币 1，接收者
         params[1] = abi.encode(address(0), USDC, address(this));
 
         posm.modifyLiquidities(abi.encode(actions, params), block.timestamp);
@@ -165,17 +165,17 @@ contract PosmHelper {
         );
         bytes[] memory params = new bytes[](2);
 
-        // BURN_POSITION params
+        // BURN_POSITION 参数
         params[0] = abi.encode(
             tokenId,
             amount0Min,
             amount1Min,
-            // hook data
+            // hook 数据
             ""
         );
 
-        // TAKE_PAIR params
-        // currency 0, currency 1, recipient
+        // TAKE_PAIR 参数
+        // 代币 0，代币 1，接收者
         params[1] = abi.encode(address(0), USDC, address(this));
 
         posm.modifyLiquidities(abi.encode(actions, params), block.timestamp);
@@ -198,7 +198,7 @@ contract PosmHelper {
         (poolKey, p) = posm.getPoolAndPositionInfo(tokenId);
         PositionInfo pos = PositionInfo.wrap(p);
 
-        // Get position ticks
+        // 获取头寸的上下界 tick
         tickLower = pos.tickLower();
         tickUpper = pos.tickUpper();
 

@@ -15,9 +15,9 @@ import {
 
 /*
 - PoolId = keccak256(PoolKey)
-- User defined value types
-  - wrap() to convert value type into user defined value type
-  - unwrap() to convert value type into user defined value type
+- 用户自定义值类型（User defined value types）
+  - wrap()：把值类型转换为用户自定义值类型
+  - unwrap()：把用户自定义值类型转换回值类型
 
 forge test --match-path src/examples/pool_id.sol -vvv
 */
@@ -35,9 +35,9 @@ contract Example_PoolId is Test {
 
         console.log("--- Pool id ---");
 
-        // unwrap() to convert PoolId into bytes32
+        // unwrap()：把 PoolId 转换为 bytes32
         bytes32 i = PoolId.unwrap(id);
-        // wrap() to convert bytes32 into PoolId
+        // wrap()：把 bytes32 转换为 PoolId
         PoolId p = PoolId.wrap(i);
 
         console.logBytes32(i);

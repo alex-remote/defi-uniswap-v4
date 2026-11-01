@@ -15,7 +15,7 @@ contract SwapV3ToV4 {
 
     receive() external payable {}
 
-    // Swap token A -> V3 -> token B -> V4 -> token C
+    // 兑换路径：代币 A -> V3 -> 代币 B -> V4 -> 代币 C
     struct V3Params {
         address tokenIn;
         address tokenOut;
@@ -29,13 +29,13 @@ contract SwapV3ToV4 {
     }
 
     function swap(V3Params calldata v3, V4Params calldata v4) external {
-        // Disable WETH pools to keep the code simple
+        // 禁用 WETH 池子，以保持代码简单
         require(
             v4.key.currency0 != WETH && v4.key.currency1 != WETH,
             "WETH pools disabled"
         );
 
-        // Map address(0) to WETH
+        // 将 address(0) 映射为 WETH
         (address v4Token0, address v4Token1) =
             (v4.key.currency0, v4.key.currency1);
         if (v4Token0 == address(0)) {
@@ -50,16 +50,16 @@ contract SwapV3ToV4 {
             ? (v4.key.currency0, v4.key.currency1)
             : (v4.key.currency1, v4.key.currency0);
 
-        // Send v3.tokenIn to UniversalRouter
+        // 将 v3.tokenIn 发送到 UniversalRouter
         IERC20(v3.tokenIn).transferFrom(
             msg.sender, address(router), v3.amountIn
         );
 
-        // UniversalRouter commands and inputs
+        // UniversalRouter 的命令（commands）与输入（inputs）
         bytes memory commands;
         bytes[] memory inputs;
 
-        // Insert UNWRAP_WETH if v3.tokenOut is WETH
+        // 若 v3.tokenOut 为 WETH，则插入 UNWRAP_WETH 命令
         if (v3.tokenOut == WETH) {
             commands = abi.encodePacked(
                 uint8(Commands.V3_SWAP_EXACT_IN),
@@ -78,33 +78,33 @@ contract SwapV3ToV4 {
         inputs[0] = abi.encode(
             // address recipient
             address(router),
-            // uint256 amountIn - use v3.tokenIn balance locked in UniversalRouter contract
+            // uint256 amountIn - 使用 UniversalRouter 合约中锁定的 v3.tokenIn 余额
             ActionConstants.CONTRACT_BALANCE,
             // uint256 amountOutMin
             uint256(1),
             // bytes path
             abi.encodePacked(v3.tokenIn, v3.poolFee, v3.tokenOut),
-            // bool payerIsUser - pay from tokens locked in UniversalRouter contract
+            // bool payerIsUser - 用 UniversalRouter 合约中锁定的代币支付
             false
         );
 
         // UNWRAP_WETH
         if (v3.tokenOut == WETH) {
             inputs[1] = abi.encode(
-                // Recipient, min amount
+                // 接收者，最小数量
                 address(router),
                 uint256(1)
             );
         }
 
-        // V4 actions and params
+        // V4 的操作（actions）与参数（params）
         bytes memory actions = abi.encodePacked(
             uint8(Actions.SETTLE),
             uint8(Actions.SWAP_EXACT_IN_SINGLE),
             uint8(Actions.TAKE_ALL)
         );
         bytes[] memory params = new bytes[](3);
-        // SETTLE (currency, amount, payer is user)
+        // SETTLE（代币，数量，付款方是否为用户）
         params[0] = abi.encode(
             v4CurrencyIn, uint256(ActionConstants.CONTRACT_BALANCE), false
         );
@@ -118,7 +118,7 @@ contract SwapV3ToV4 {
                 hookData: bytes("")
             })
         );
-        // TAKE_ALL (currency, min amount)
+        // TAKE_ALL（代币，最小数量）
         params[2] = abi.encode(v4CurrencyOut, uint256(v4.amountOutMin));
 
         // V4_SWAP
