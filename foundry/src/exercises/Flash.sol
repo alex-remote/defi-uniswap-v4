@@ -12,7 +12,7 @@ contract Flash is IUnlockCallback {
     using CurrencyLib for address;
 
     IPoolManager public immutable poolManager;
-    // Contract address to test flash loan
+    // 用于测试闪电贷的合约地址
     address private immutable tester;
 
     modifier onlyPoolManager() {
@@ -32,11 +32,11 @@ contract Flash is IUnlockCallback {
         onlyPoolManager
         returns (bytes memory)
     {
-        // Write your code here
+        // 在此编写你的代码
         return "";
     }
 
     function flash(address currency, uint256 amount) external {
-        // Write your code here
+        // 在此编写你的代码
     }
 }

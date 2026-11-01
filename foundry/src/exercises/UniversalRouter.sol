@@ -22,13 +22,13 @@ contract UniversalRouterExercises {
         uint128 amountOutMin,
         bool zeroForOne
     ) external payable {
-        // Write your code here
+        // 在此编写你的代码
 
-        // UniversalRouter inputs
+        // UniversalRouter 的输入
         bytes memory commands;
         bytes[] memory inputs = new bytes[](1);
 
-        // V4 actions and params
+        // V4 的操作（actions）与参数（params）
         bytes memory actions;
         bytes[] memory params = new bytes[](3);
     }

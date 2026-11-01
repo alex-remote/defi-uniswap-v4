@@ -24,10 +24,10 @@ import {
 import {CounterHook} from "@exercises/CounterHook.sol";
 
 /*
-1. Run test/FindHookSalt.test.sol to find salt
-2. Set salt
+1. 运行 test/FindHookSalt.test.sol 找到 salt
+2. 设置 salt
 export SALT=
-3. Run this test
+3. 运行本测试
 forge test --fork-url $FORK_URL --match-path test/CounterHook.test.sol -vvv
 */
 
@@ -129,7 +129,7 @@ contract CounterHookTest is Test {
             }
             return "";
         } else if (action == SWAP) {
-            // Swap ETH -> USDC
+            // 兑换 ETH -> USDC
             uint256 bal = usdc.balanceOf(address(this));
             int256 d = poolManager.swap({
                 key: key,

@@ -35,7 +35,7 @@ contract SwapTest is Test, TestHelper {
     }
 
     function test_swapExactInputSingle_ETH_USDC() public {
-        // Swap ETH to USDC
+        // 将 ETH 兑换为 USDC
         helper.set("Before swap USDC", usdc.balanceOf(address(this)));
         helper.set("Before swap ETH", address(this).balance);
 
@@ -63,7 +63,7 @@ contract SwapTest is Test, TestHelper {
     }
 
     function test_swapExactInputSingle_USDC_ETH() public {
-        // Swap USDC to ETH
+        // 将 USDC 兑换为 ETH
         helper.set("Before swap USDC", usdc.balanceOf(address(this)));
         helper.set("Before swap ETH", address(this).balance);
 

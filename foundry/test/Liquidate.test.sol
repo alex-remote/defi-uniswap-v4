@@ -21,7 +21,7 @@ contract LiquidateTest is Test {
     Liquidate ex;
 
     function setUp() public {
-        // Supply to Aave V3
+        // 向 Aave V3 存入（supply）资产
         deal(WETH, address(this), 1e18);
         weth.approve(address(pool), type(uint256).max);
         pool.supply({
@@ -31,7 +31,7 @@ contract LiquidateTest is Test {
             referralCode: 0
         });
 
-        // Borrow from Aave V3
+        // 从 Aave V3 借款
         vm.mockCall(
             AAVE_V3_ORACLE,
             abi.encodeCall(IAaveOracle.getAssetPrice, (WETH)),
@@ -45,7 +45,7 @@ contract LiquidateTest is Test {
             onBehalfOf: address(this)
         });
 
-        // Mock ETH price. Set it to 500 USD
+        // 模拟（mock）ETH 价格，将其设为 500 USD
         uint256 ethPrice = 500 * 1e8;
 
         vm.mockCall(
@@ -79,11 +79,11 @@ contract LiquidateTest is Test {
         (uint256 colUsdAfter, uint256 debtUsdAfter,,,,) =
             pool.getUserAccountData(address(this));
 
-        // Check liquidation
+        // 检查清算结果
         assertLt(colUsdAfter, colUsdBefore, "USD collateral after");
         assertLt(debtUsdAfter, debtUsdBefore, "USD debt after");
 
-        // Check profit
+        // 检查利润
         uint256 usdcBal = usdc.balanceOf(address(this));
         console.log("USDC balance: %e", usdcBal);
         assertGe(usdcBal, 0, "USDC balance");

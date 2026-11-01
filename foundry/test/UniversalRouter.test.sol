@@ -35,7 +35,7 @@ contract UniversalRouterTest is Test, TestHelper {
     }
 
     function test_swap_zero_for_one() public {
-        // Swap ETH to USDC
+        // 将 ETH 兑换为 USDC
         helper.set("Before swap USDC", usdc.balanceOf(address(this)));
         helper.set("Before swap ETH", address(this).balance);
 
@@ -61,7 +61,7 @@ contract UniversalRouterTest is Test, TestHelper {
     }
 
     function test_swap_one_for_zero() public {
-        // Swap USDC to ETH
+        // 将 USDC 兑换为 ETH
         helper.set("Before swap USDC", usdc.balanceOf(address(this)));
         helper.set("Before swap ETH", address(this).balance);
 

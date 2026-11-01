@@ -48,7 +48,7 @@ contract PositionManagerTest is Test, TestUtil {
         int24 tickLower = getTickLower(tick, TICK_SPACING);
         uint256 liquidity = 1e12;
 
-        // Mint
+        // 铸造
         console.log("--- mint ---");
         helper.set("ETH before", address(ex).balance);
         helper.set("USDC before", usdc.balanceOf(address(ex)));
@@ -77,7 +77,7 @@ contract PositionManagerTest is Test, TestUtil {
         assertGt(helper.get("ETH after"), 0, "ETH balance");
         assertGt(helper.get("USDC after"), 0, "USDC balance");
 
-        // Burn
+        // 销毁
         console.log("--- burn ---");
         helper.set("ETH before", address(ex).balance);
         helper.set("USDC before", usdc.balanceOf(address(ex)));
@@ -113,7 +113,7 @@ contract PositionManagerTest is Test, TestUtil {
             liquidity
         );
 
-        // Increase liquidity
+        // 增加流动性
         console.log("--- increase liquidity ---");
         helper.set("ETH before", address(ex).balance);
         helper.set("USDC before", usdc.balanceOf(address(ex)));
@@ -142,7 +142,7 @@ contract PositionManagerTest is Test, TestUtil {
         assertGt(helper.get("ETH after"), 0, "ETH balance");
         assertGt(helper.get("USDC after"), 0, "USDC balance");
 
-        // Decrease liquidity
+        // 减少流动性
         console.log("--- decrease liquidity ---");
         helper.set("ETH before", address(ex).balance);
         helper.set("USDC before", usdc.balanceOf(address(ex)));

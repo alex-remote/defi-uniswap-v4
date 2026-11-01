@@ -41,7 +41,7 @@ contract SwapV3ToV4Test is Test, TestHelper {
     function test_swap_weth_to_eth() public {
         // vm.skip(true);
 
-        // Swap WETH to USDC -> ETH
+        // 兑换路径：WETH 换 USDC -> ETH
         helper.set("Before swap ETH", address(this).balance);
         helper.set("Before swap WETH", weth.balanceOf(address(this)));
         helper.set("Before swap USDC", usdc.balanceOf(address(this)));
@@ -77,7 +77,7 @@ contract SwapV3ToV4Test is Test, TestHelper {
     function test_swap_usdc_to_usdc() public {
         // vm.skip(true);
 
-        // Swap USDC to WETH -> ETH -> USDC
+        // 兑换路径：USDC 换 WETH -> ETH -> USDC
         helper.set("Before swap ETH", address(this).balance);
         helper.set("Before swap WETH", weth.balanceOf(address(this)));
         helper.set("Before swap USDC", usdc.balanceOf(address(this)));

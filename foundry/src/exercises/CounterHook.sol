@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.30;
 
-// Based off of BaseHook
+// 基于 BaseHook 改写
 // https://github.com/Uniswap/v4-periphery/blob/main/src/utils/BaseHook.sol
 
-// See here for explanation of function inputs and ouputs
+// 各函数输入与输出的说明见此处
 // https://github.com/Uniswap/v4-core/blob/main/src/interfaces/IHooks.sol
 
 import {IPoolManager} from "../interfaces/IPoolManager.sol";

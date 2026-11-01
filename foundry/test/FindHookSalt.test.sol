@@ -9,8 +9,8 @@ import {CounterHook} from "@exercises/CounterHook.sol";
 import {LimitOrder} from "@exercises/LimitOrder.sol";
 
 /*
-Script to find valid Hooks address
-NOTE: Don't run in fork mode, the test may hit the RPC rate limit and return an error
+用于查找有效 hook 地址的脚本
+NOTE: 不要在分叉模式下运行，测试可能会触发 RPC 速率限制并返回错误
 
 forge test --match-path test/FindHookSalt.test.sol -vvv
 */

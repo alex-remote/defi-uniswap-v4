@@ -60,7 +60,7 @@ contract UniversalRouterPermit2 is Test {
 
         // permit2.permit(signer, params, sig);
 
-        // Need to prank signer for Universal router to pass correct msg.sender to permit2
+        // 需要以 signer 身份 prank，Universal Router 才会把正确的 msg.sender 传给 permit2
         vm.prank(signer);
         router.execute(commands, inputs, block.timestamp);
     }

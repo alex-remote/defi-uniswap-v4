@@ -32,14 +32,14 @@
 | A06 | 其余接口（含 aave-v3） | 12 | 456 | ⏳ 进行中 |
 | A07 | libraries 全部 | 12 | 595 | ⏳ 进行中 |
 | A08 | types、Constants、TStore、examples、aave-v3、MixedRouteQuoterV2Example、.gitignore | 13 | 488 | ⏳ 进行中 |
-| A09 | LimitOrder（练习 + 答案） | 2 | 729 | ⏳ 进行中 |
+| A09 | LimitOrder（练习 + 答案） | 2 | 729 | ✅ 已完成 |
 | A10 | Liquidate（练习 + 答案） | 2 | 311 | ✅ 已完成 |
 | A11 | Posm（练习 + 答案） | 2 | 261 | ⏳ 进行中 |
 | A12 | Router（练习 + 答案） | 2 | 524 | ✅ 已完成 |
 | A13 | SwapV3ToV4 / Reposition / Swap / Subscriber（练习 + 答案） | 8 | 712 | ⏳ 进行中 |
-| A14 | CounterHook / Flash / UniversalRouter / Reader（练习 + 答案） | 8 | 659 | ⏳ 进行中 |
+| A14 | CounterHook / Flash / UniversalRouter / Reader（练习 + 答案） | 8 | 659 | ✅ 已完成 |
 | A15 | 测试 PosmHelper / LimitOrder / Router / Tick | 4 | 1063 | ⏳ 进行中 |
-| A16 | 其余 14 个测试文件 | 14 | 1211 | ⏳ 进行中 |
+| A16 | 其余 14 个测试文件 | 14 | 1211 | ✅ 已完成 |
 
 ## 四、文件清单
 
@@ -86,18 +86,18 @@
 
 ### `foundry/src/exercises`
 
-- [ ] `foundry/src/exercises/CounterHook.sol` — 159 行 · 待译注释约 4 行 · A14
-- [ ] `foundry/src/exercises/Flash.sol` — 42 行 · 待译注释约 4 行 · A14
-- [ ] `foundry/src/exercises/LimitOrder.sol` — 247 行 · 待译注释约 16 行 · A09
+- [x] `foundry/src/exercises/CounterHook.sol` — 159 行 · 待译注释约 4 行 · A14 · 译后 159 行 ✅
+- [x] `foundry/src/exercises/Flash.sol` — 42 行 · 待译注释约 4 行 · A14 · 译后 42 行 ✅
+- [x] `foundry/src/exercises/LimitOrder.sol` — 247 行 · 待译注释约 16 行 · A09 · 译后 247 行 ✅
 - [x] `foundry/src/exercises/Liquidate.sol` — 127 行 · 待译注释约 14 行 · A10 · 译后 127 行 ✅
 - [ ] `foundry/src/exercises/Posm.sol` — 96 行 · 待译注释约 13 行 · A11
-- [ ] `foundry/src/exercises/Reader.sol` — 34 行 · 待译注释约 1 行 · A14
+- [x] `foundry/src/exercises/Reader.sol` — 34 行 · 待译注释约 1 行 · A14 · 译后 34 行 ✅
 - [ ] `foundry/src/exercises/Reposition.sol` — 38 行 · 待译注释约 2 行 · A13
 - [x] `foundry/src/exercises/Router.sol` — 131 行 · 待译注释约 11 行 · A12 · 译后 131 行 ✅
 - [ ] `foundry/src/exercises/Subscriber.sol` — 87 行 · 待译注释约 8 行 · A13
 - [ ] `foundry/src/exercises/Swap.sol` — 54 行 · 待译注释约 3 行 · A13
 - [ ] `foundry/src/exercises/SwapV3ToV4.sol` — 74 行 · 待译注释约 5 行 · A13
-- [ ] `foundry/src/exercises/UniversalRouter.sol` — 65 行 · 待译注释约 3 行 · A14
+- [x] `foundry/src/exercises/UniversalRouter.sol` — 65 行 · 待译注释约 3 行 · A14 · 译后 65 行 ✅
 
 ### `foundry/src/interfaces`
 
@@ -137,18 +137,18 @@
 
 ### `foundry/src/solutions`
 
-- [ ] `foundry/src/solutions/CounterHook.sol` — 163 行 · 待译注释约 4 行 · A14
-- [ ] `foundry/src/solutions/Flash.sol` — 61 行 · 待译注释约 5 行 · A14
-- [ ] `foundry/src/solutions/LimitOrder.sol` — 482 行 · 待译注释约 15 行 · A09
+- [x] `foundry/src/solutions/CounterHook.sol` — 163 行 · 待译注释约 4 行 · A14 · 译后 163 行 ✅
+- [x] `foundry/src/solutions/Flash.sol` — 61 行 · 待译注释约 5 行 · A14 · 译后 61 行 ✅
+- [x] `foundry/src/solutions/LimitOrder.sol` — 482 行 · 待译注释约 15 行 · A09 · 译后 482 行 ✅
 - [x] `foundry/src/solutions/Liquidate.sol` — 184 行 · 待译注释约 20 行 · A10 · 译后 184 行 ✅
 - [ ] `foundry/src/solutions/Posm.sol` — 165 行 · 待译注释约 26 行 · A11
-- [ ] `foundry/src/solutions/Reader.sol` — 35 行 · 仅 SPDX 声明，无需改动 · A14
+- [x] `foundry/src/solutions/Reader.sol` — 35 行 · 仅 SPDX 声明，无需改动 · A14 · 已复核，无需改动 ✅
 - [ ] `foundry/src/solutions/Reposition.sol` — 80 行 · 待译注释约 13 行 · A13
 - [x] `foundry/src/solutions/Router.sol` — 393 行 · 待译注释约 15 行 · A12 · 译后 393 行 ✅
 - [ ] `foundry/src/solutions/Subscriber.sol` — 109 行 · 待译注释约 6 行 · A13
 - [ ] `foundry/src/solutions/Swap.sol` — 124 行 · 待译注释约 7 行 · A13
 - [ ] `foundry/src/solutions/SwapV3ToV4.sol` — 146 行 · 待译注释约 19 行 · A13
-- [ ] `foundry/src/solutions/UniversalRouter.sol` — 100 行 · 待译注释约 7 行 · A14
+- [x] `foundry/src/solutions/UniversalRouter.sol` — 100 行 · 待译注释约 7 行 · A14 · 译后 100 行 ✅
 
 ### `foundry/src/types`
 
@@ -160,24 +160,24 @@
 
 ### `foundry/test`
 
-- [ ] `foundry/test/CounterHook.test.sol` — 197 行 · 待译注释约 6 行 · A16
-- [ ] `foundry/test/FindHookSalt.test.sol` — 63 行 · 待译注释约 3 行 · A16
-- [ ] `foundry/test/Flash.test.sol` — 44 行 · 仅 SPDX 声明，无需改动 · A16
+- [x] `foundry/test/CounterHook.test.sol` — 197 行 · 待译注释约 6 行 · A16 · 译后 197 行 ✅
+- [x] `foundry/test/FindHookSalt.test.sol` — 63 行 · 待译注释约 3 行 · A16 · 译后 63 行 ✅
+- [x] `foundry/test/Flash.test.sol` — 44 行 · 仅 SPDX 声明，无需改动 · A16 · 已复核，无需改动 ✅
 - [ ] `foundry/test/LimitOrder.test.sol` — 385 行 · 待译注释约 25 行 · A15
-- [ ] `foundry/test/Liquidate.test.sol` — 91 行 · 待译注释约 6 行 · A16
-- [ ] `foundry/test/Posm.test.sol` — 168 行 · 待译注释约 6 行 · A16
+- [x] `foundry/test/Liquidate.test.sol` — 91 行 · 待译注释约 6 行 · A16 · 译后 91 行 ✅
+- [x] `foundry/test/Posm.test.sol` — 168 行 · 待译注释约 6 行 · A16 · 译后 168 行 ✅
 - [ ] `foundry/test/PosmHelper.sol` — 207 行 · 待译注释约 27 行 · A15
-- [ ] `foundry/test/Reader.test.sol` — 49 行 · 待译注释约 1 行 · A16
-- [ ] `foundry/test/Reposition.test.sol` — 98 行 · 仅 SPDX 声明，无需改动 · A16
+- [x] `foundry/test/Reader.test.sol` — 49 行 · 待译注释约 1 行 · A16 · 已复核，无需改动 ✅
+- [x] `foundry/test/Reposition.test.sol` — 98 行 · 仅 SPDX 声明，无需改动 · A16 · 已复核，无需改动 ✅
 - [ ] `foundry/test/Router.test.sol` — 364 行 · 待译注释约 9 行 · A15
-- [ ] `foundry/test/Subscriber.test.sol` — 77 行 · 仅 SPDX 声明，无需改动 · A16
-- [ ] `foundry/test/Swap.test.sol` — 92 行 · 待译注释约 2 行 · A16
-- [ ] `foundry/test/SwapV3ToV4.test.sol` — 111 行 · 待译注释约 4 行 · A16
-- [ ] `foundry/test/TestHelper.sol` — 22 行 · 仅 SPDX 声明，无需改动 · A16
-- [ ] `foundry/test/TestUtil.sol` — 26 行 · 待译注释约 2 行 · A16
+- [x] `foundry/test/Subscriber.test.sol` — 77 行 · 仅 SPDX 声明，无需改动 · A16 · 已复核，无需改动 ✅
+- [x] `foundry/test/Swap.test.sol` — 92 行 · 待译注释约 2 行 · A16 · 译后 92 行 ✅
+- [x] `foundry/test/SwapV3ToV4.test.sol` — 111 行 · 待译注释约 4 行 · A16 · 译后 111 行 ✅
+- [x] `foundry/test/TestHelper.sol` — 22 行 · 仅 SPDX 声明，无需改动 · A16 · 已复核，无需改动 ✅
+- [x] `foundry/test/TestUtil.sol` — 26 行 · 待译注释约 2 行 · A16 · 译后 26 行 ✅
 - [ ] `foundry/test/Tick.test.sol` — 107 行 · 待译注释约 9 行 · A15
-- [ ] `foundry/test/UniversalRouter.test.sol` — 88 行 · 待译注释约 2 行 · A16
-- [ ] `foundry/test/UniversalRouterPermit2.test.sol` — 85 行 · 待译注释约 6 行 · A16
+- [x] `foundry/test/UniversalRouter.test.sol` — 88 行 · 待译注释约 2 行 · A16 · 译后 88 行 ✅
+- [x] `foundry/test/UniversalRouterPermit2.test.sol` — 85 行 · 待译注释约 6 行 · A16 · 译后 85 行 ✅
 
 ### `notes`
 
@@ -204,3 +204,6 @@
 - 2026-11-01：完成文件统计，创建本文档，分派 16 个子代理并行翻译
 - 2026-11-01 15:01：A12 汇报完成，主代理复核 2/2 个文件通过；仅剩注释掉的 import 提示，可忽略
 - 2026-11-01 15:01：A10 汇报完成，主代理复核 2/2 个文件通过；SWAP_EXACT_IN_SINGLE 常量名注释保留原文
+- 2026-11-01 15:01：A16 汇报完成，主代理复核 14/14 个文件通过
+- 2026-11-01 15:01：A14 汇报完成，主代理复核 8/8 个文件通过
+- 2026-11-01 15:01：A09 汇报完成，主代理复核 2/2 个文件通过

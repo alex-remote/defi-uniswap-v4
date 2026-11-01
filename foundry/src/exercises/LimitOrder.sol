@@ -59,24 +59,24 @@ contract LimitOrder is TStore {
         uint256 amount1
     );
 
-    // Bucket of limit orders
+    // 限价单桶（Bucket）
     struct Bucket {
         bool filled;
         uint256 amount0;
         uint256 amount1;
-        // Total liquidity
+        // 总流动性
         uint128 liquidity;
-        // Liquidity provided per user
+        // 每个用户提供的流动性
         mapping(address => uint128) sizes;
     }
 
     IPoolManager public immutable poolManager;
 
-    // Bucket id => current slot to place limit orders
+    // 桶 id => 当前用于下限价单的 slot
     mapping(bytes32 => uint256) public slots;
-    // Bucket id => slot => Bucket
+    // 桶 id => slot => Bucket
     mapping(bytes32 => mapping(uint256 => Bucket)) public buckets;
-    // Pool id => last tick
+    // 池子 id => 上一次记录的 tick
     mapping(PoolId => int24) public ticks;
 
     modifier onlyPoolManager() {
@@ -120,7 +120,7 @@ contract LimitOrder is TStore {
         uint160 sqrtPriceX96,
         int24 tick
     ) external onlyPoolManager returns (bytes4) {
-        // Write your code here
+        // 在此编写你的代码
         return this.afterInitialize.selector;
     }
 
@@ -136,7 +136,7 @@ contract LimitOrder is TStore {
         setAction(REMOVE_LIQUIDITY)
         returns (bytes4, int128)
     {
-        // Write your code here
+        // 在此编写你的代码
         return (this.afterSwap.selector, 0);
     }
 
@@ -148,9 +148,9 @@ contract LimitOrder is TStore {
         uint256 action = _getAction();
 
         if (action == ADD_LIQUIDITY) {
-            // Write your code here
+            // 在此编写你的代码
         } else if (action == REMOVE_LIQUIDITY) {
-            // Write your code here
+            // 在此编写你的代码
         }
 
         revert("Invalid action");
@@ -162,14 +162,14 @@ contract LimitOrder is TStore {
         bool zeroForOne,
         uint128 liquidity
     ) external payable setAction(ADD_LIQUIDITY) {
-        // Write your code here
+        // 在此编写你的代码
     }
 
     function cancel(PoolKey calldata key, int24 tickLower, bool zeroForOne)
         external
         setAction(REMOVE_LIQUIDITY)
     {
-        // Write your code here
+        // 在此编写你的代码
     }
 
     function take(
@@ -178,7 +178,7 @@ contract LimitOrder is TStore {
         bool zeroForOne,
         uint256 slot
     ) external {
-        // Write your code here
+        // 在此编写你的代码
     }
 
     function getBucketId(PoolId poolId, int24 tick, bool zeroForOne)
@@ -221,7 +221,7 @@ contract LimitOrder is TStore {
         returns (int24)
     {
         int24 compressed = tick / tickSpacing;
-        // Round towards negative infinity
+        // 向负无穷方向取整
         if (tick < 0 && tick % tickSpacing != 0) compressed--;
         return compressed * tickSpacing;
     }
@@ -231,9 +231,9 @@ contract LimitOrder is TStore {
         pure
         returns (int24 lower, int24 upper)
     {
-        // Last lower tick
+        // 上一次 tick 对应的下边界 tick
         int24 l0 = _getTickLower(tick0, tickSpacing);
-        // Current lower tick
+        // 当前 tick 对应的下边界 tick
         int24 l1 = _getTickLower(tick1, tickSpacing);
 
         if (tick0 <= tick1) {
