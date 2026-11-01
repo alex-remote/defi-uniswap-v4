@@ -29,7 +29,7 @@
 | A03 | 练习文档 swap_router / subscriber / liquidation | 3 | 238 | ✅ 已完成 |
 | A04 | 其余 7 个练习文档 | 7 | 249 | ✅ 已完成 |
 | A05 | 接口 IStateView / INotifier / ISubscriber | 3 | 261 | ✅ 已完成 |
-| A06 | 其余接口（含 aave-v3） | 12 | 456 | ⏳ 进行中 |
+| A06 | 其余接口（含 aave-v3） | 12 | 456 | ✅ 已完成 |
 | A07 | libraries 全部 | 12 | 595 | ⏳ 进行中 |
 | A08 | types、Constants、TStore、examples、aave-v3、MixedRouteQuoterV2Example、.gitignore | 13 | 488 | ✅ 已完成 |
 | A09 | LimitOrder（练习 + 答案） | 2 | 729 | ✅ 已完成 |
@@ -101,24 +101,24 @@
 
 ### `foundry/src/interfaces`
 
-- [ ] `foundry/src/interfaces/IERC20.sol` — 18 行 · 仅 SPDX 声明，无需改动 · A06
-- [ ] `foundry/src/interfaces/IExtsload.sol` — 27 行 · 待译注释约 11 行 · A06
-- [ ] `foundry/src/interfaces/IExttload.sol` — 18 行 · 待译注释约 7 行 · A06
+- [x] `foundry/src/interfaces/IERC20.sol` — 18 行 · 仅 SPDX 声明，无需改动 · A06 · 已复核，无需改动 ✅
+- [x] `foundry/src/interfaces/IExtsload.sol` — 27 行 · 待译注释约 11 行 · A06 · 译后 27 行 ✅
+- [x] `foundry/src/interfaces/IExttload.sol` — 18 行 · 待译注释约 7 行 · A06 · 译后 18 行 ✅
 - [x] `foundry/src/interfaces/INotifier.sol` — 59 行 · 待译注释约 29 行 · A05 · 译后 59 行 ✅
-- [ ] `foundry/src/interfaces/IPermit2.sol` — 64 行 · 待译注释约 19 行 · A06
-- [ ] `foundry/src/interfaces/IPoolManager.sol` — 88 行 · 待译注释约 12 行 · A06
-- [ ] `foundry/src/interfaces/IPositionManager.sol` — 47 行 · 待译注释约 4 行 · A06
+- [x] `foundry/src/interfaces/IPermit2.sol` — 64 行 · 待译注释约 19 行 · A06 · 译后 64 行 ✅
+- [x] `foundry/src/interfaces/IPoolManager.sol` — 88 行 · 待译注释约 12 行 · A06 · 译后 88 行 ✅
+- [x] `foundry/src/interfaces/IPositionManager.sol` — 47 行 · 待译注释约 4 行 · A06 · 译后 47 行 ✅
 - [x] `foundry/src/interfaces/IStateView.sol` — 155 行 · 待译注释约 70 行 · A05 · 译后 155 行 ✅
 - [x] `foundry/src/interfaces/ISubscriber.sol` — 47 行 · 待译注释约 24 行 · A05 · 译后 47 行 ✅
-- [ ] `foundry/src/interfaces/IUniversalRouter.sol` — 29 行 · 待译注释约 9 行 · A06
-- [ ] `foundry/src/interfaces/IUnlockCallback.sol` — 12 行 · 待译注释约 4 行 · A06
-- [ ] `foundry/src/interfaces/IV4Router.sol` — 59 行 · 待译注释约 8 行 · A06
-- [ ] `foundry/src/interfaces/IWETH.sol` — 9 行 · 仅 SPDX 声明，无需改动 · A06
+- [x] `foundry/src/interfaces/IUniversalRouter.sol` — 29 行 · 待译注释约 9 行 · A06 · 译后 29 行 ✅
+- [x] `foundry/src/interfaces/IUnlockCallback.sol` — 12 行 · 待译注释约 4 行 · A06 · 译后 12 行 ✅
+- [x] `foundry/src/interfaces/IV4Router.sol` — 59 行 · 待译注释约 8 行 · A06 · 译后 59 行 ✅
+- [x] `foundry/src/interfaces/IWETH.sol` — 9 行 · 仅 SPDX 声明，无需改动 · A06 · 已复核，无需改动 ✅
 
 ### `foundry/src/interfaces/aave-v3`
 
-- [ ] `foundry/src/interfaces/aave-v3/IAaveOracle.sol` — 7 行 · 待译注释约 1 行 · A06
-- [ ] `foundry/src/interfaces/aave-v3/IPool.sol` — 78 行 · 仅 SPDX 声明，无需改动 · A06
+- [x] `foundry/src/interfaces/aave-v3/IAaveOracle.sol` — 7 行 · 待译注释约 1 行 · A06 · 译后 7 行 ✅
+- [x] `foundry/src/interfaces/aave-v3/IPool.sol` — 78 行 · 仅 SPDX 声明，无需改动 · A06 · 已复核，无需改动 ✅
 
 ### `foundry/src/libraries`
 
@@ -216,3 +216,4 @@
 - 2026-11-01 15:02：A03 汇报完成，主代理复核 3/3 个文件通过
 - 2026-11-01 15:02：A04 汇报完成，主代理复核 7/7 个文件通过
 - 2026-11-01 15:02：A01 汇报完成，主代理复核 5/5 个文件通过
+- 2026-11-01 15:02：A06 汇报完成，主代理复核 12/12 个文件通过

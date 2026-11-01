@@ -3,23 +3,23 @@ pragma solidity 0.8.30;
 
 interface IPermit2 {
     struct PermitDetails {
-        // ERC20 token address
+        // ERC20 代币地址
         address token;
-        // the maximum amount allowed to spend
+        // 允许花费的最大数量
         uint160 amount;
-        // timestamp at which a spender's token allowances become invalid
+        // spender 的代币授权额度失效的时间戳
         uint48 expiration;
-        // an incrementing value indexed per owner,token,and spender for each signature
+        // 按 owner、token 和 spender 分别索引的递增值，每次签名递增一次
         uint48 nonce;
     }
-    /// @notice The permit message signed for a single token allowance
+    /// @notice 针对单个代币授权所签名的 permit 消息
 
     struct PermitSingle {
-        // the permit data for a single token alownce
+        // 单个代币授权的 permit 数据
         PermitDetails details;
-        // address permissioned on the allowed tokens
+        // 被授予已授权代币使用权限的地址
         address spender;
-        // deadline on the permit signature
+        // permit 签名的截止时间
         uint256 sigDeadline;
     }
 
@@ -31,11 +31,11 @@ interface IPermit2 {
         uint48 expiration
     ) external;
 
-    /// @notice A map from token owner address and a caller specified word index to a bitmap. Used to set bits in the bitmap to prevent against signature replay protection
-    /// @dev Uses unordered nonces so that permit messages do not need to be spent in a certain order
-    /// @dev The mapping is indexed first by the token owner, then by an index specified in the nonce
-    /// @dev It returns a uint256 bitmap
-    /// @dev The index, or wordPosition is capped at type(uint248).max
+    /// @notice 从代币所有者地址和调用者指定的字索引（word index）映射到一个位图。通过在位图中置位来防止签名重放
+    /// @dev 使用无序 nonce，因此 permit 消息无需按特定顺序使用
+    /// @dev 该映射先按代币所有者索引，再按 nonce 中指定的索引进行索引
+    /// @dev 返回一个 uint256 位图
+    /// @dev 索引（即 wordPosition）的上限为 type(uint248).max
     function nonceBitmap(address, uint256) external view returns (uint256);
 
     function permit(
@@ -44,21 +44,21 @@ interface IPermit2 {
         bytes calldata signature
     ) external;
 
-    /// @dev Uses cached version if chainid and address are unchanged from construction.
+    /// @dev 若 chainid 和合约地址与构造时相同，则使用缓存的值。
     function DOMAIN_SEPARATOR() external view returns (bytes32);
 
     error SignatureExpired(uint256 signatureDeadline);
 
     error InvalidNonce();
-    /// @notice Thrown when the passed in signature is not a valid length
+    /// @notice 当传入的签名长度无效时抛出
     error InvalidSignatureLength();
 
-    /// @notice Thrown when the recovered signer is equal to the zero address
+    /// @notice 当恢复出的签名者为零地址时抛出
     error InvalidSignature();
 
-    /// @notice Thrown when the recovered signer does not equal the claimedSigner
+    /// @notice 当恢复出的签名者不等于 claimedSigner 时抛出
     error InvalidSigner();
 
-    /// @notice Thrown when the recovered contract signature is incorrect
+    /// @notice 当恢复出的合约签名不正确时抛出
     error InvalidContractSignature();
 }

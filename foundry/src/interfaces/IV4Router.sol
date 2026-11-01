@@ -12,18 +12,18 @@ struct PathKey {
 }
 
 /// @title IV4Router
-/// @notice Interface for the V4Router contract
+/// @notice V4Router 合约的接口
 interface IV4Router {
-    /// @notice Emitted when an exactInput swap does not receive its minAmountOut
+    /// @notice 当 exactInput 兑换收到的数量未达到 minAmountOut 时抛出
     error V4TooLittleReceived(
         uint256 minAmountOutReceived, uint256 amountReceived
     );
-    /// @notice Emitted when an exactOutput is asked for more than its maxAmountIn
+    /// @notice 当 exactOutput 被要求支付的数量超过 maxAmountIn 时抛出
     error V4TooMuchRequested(
         uint256 maxAmountInRequested, uint256 amountRequested
     );
 
-    /// @notice Parameters for a single-hop exact-input swap
+    /// @notice 单跳精确输入兑换的参数
     struct ExactInputSingleParams {
         PoolKey poolKey;
         bool zeroForOne;
@@ -32,7 +32,7 @@ interface IV4Router {
         bytes hookData;
     }
 
-    /// @notice Parameters for a multi-hop exact-input swap
+    /// @notice 多跳精确输入兑换的参数
     struct ExactInputParams {
         address currencyIn;
         PathKey[] path;
@@ -40,7 +40,7 @@ interface IV4Router {
         uint128 amountOutMinimum;
     }
 
-    /// @notice Parameters for a single-hop exact-output swap
+    /// @notice 单跳精确输出兑换的参数
     struct ExactOutputSingleParams {
         PoolKey poolKey;
         bool zeroForOne;
@@ -49,7 +49,7 @@ interface IV4Router {
         bytes hookData;
     }
 
-    /// @notice Parameters for a multi-hop exact-output swap
+    /// @notice 多跳精确输出兑换的参数
     struct ExactOutputParams {
         address currencyOut;
         PathKey[] path;

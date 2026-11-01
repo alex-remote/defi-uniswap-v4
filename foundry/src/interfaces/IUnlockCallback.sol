@@ -1,11 +1,11 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.30;
 
-/// @notice Interface for the callback executed when an address unlocks the pool manager
+/// @notice 某个地址解锁 PoolManager 时所执行的回调的接口
 interface IUnlockCallback {
-    /// @notice Called by the pool manager on `msg.sender` when the manager is unlocked
-    /// @param data The data that was passed to the call to unlock
-    /// @return Any data that you want to be returned from the unlock call
+    /// @notice 当 PoolManager 被解锁时，由 PoolManager 在 `msg.sender` 上调用
+    /// @param data 调用 unlock 时传入的数据
+    /// @return 任何你希望由 unlock 调用返回的数据
     function unlockCallback(bytes calldata data)
         external
         returns (bytes memory);

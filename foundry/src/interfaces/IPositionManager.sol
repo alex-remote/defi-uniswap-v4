@@ -4,8 +4,8 @@ pragma solidity 0.8.30;
 import {PoolKey} from "../types/PoolKey.sol";
 import {INotifier} from "./INotifier.sol";
 
-// Note: positionInfo is an user defined value type = uint256
-// See here
+// Note: positionInfo 是一个用户自定义值类型 = uint256
+// 参见此处
 // https://github.com/Uniswap/v4-periphery/blob/main/src/libraries/PositionInfoLibrary.sol
 
 interface IPositionManager is INotifier {

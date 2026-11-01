@@ -7,38 +7,38 @@ import {PoolKey} from "../types/PoolKey.sol";
 import {ModifyLiquidityParams, SwapParams} from "../types/PoolOperation.sol";
 
 interface IPoolManager is IExtsload, IExttload {
-    /// @notice Thrown when a currency is not netted out after the contract is unlocked
+    /// @notice 当合约解锁结束后仍有代币未结清（净 delta 不为零）时抛出
     error CurrencyNotSettled();
 
-    /// @notice Thrown when trying to interact with a non-initialized pool
+    /// @notice 当尝试与未初始化的池子交互时抛出
     error PoolNotInitialized();
 
-    /// @notice Thrown when unlock is called, but the contract is already unlocked
+    /// @notice 当调用 unlock 但合约已处于解锁状态时抛出
     error AlreadyUnlocked();
 
-    /// @notice Thrown when a function is called that requires the contract to be unlocked, but it is not
+    /// @notice 当调用了要求合约处于解锁状态的函数、但合约并未解锁时抛出
     error ManagerLocked();
 
-    /// @notice Pools are limited to type(int16).max tickSpacing in #initialize, to prevent overflow
+    /// @notice 在 #initialize 中，池子的 tickSpacing 最大限制为 type(int16).max，以防止溢出
     error TickSpacingTooLarge(int24 tickSpacing);
 
-    /// @notice Pools must have a positive non-zero tickSpacing passed to #initialize
+    /// @notice 传给 #initialize 的池子 tickSpacing 必须为非零正数
     error TickSpacingTooSmall(int24 tickSpacing);
 
-    /// @notice PoolKey must have currencies where address(currency0) < address(currency1)
+    /// @notice PoolKey 中的代币必须满足 address(currency0) < address(currency1)
     error CurrenciesOutOfOrderOrEqual(address currency0, address currency1);
 
-    /// @notice Thrown when a call to updateDynamicLPFee is made by an address that is not the hook,
-    /// or on a pool that does not have a dynamic swap fee.
+    /// @notice 当 updateDynamicLPFee 的调用者不是该池子的 hook 地址，
+    /// 或目标池子没有启用动态兑换手续费时抛出。
     error UnauthorizedDynamicLPFeeUpdate();
 
-    /// @notice Thrown when trying to swap amount of 0
+    /// @notice 当尝试兑换的数量为 0 时抛出
     error SwapAmountCannotBeZero();
 
-    ///@notice Thrown when native currency is passed to a non native settlement
+    ///@notice 当向非原生代币的结算传入原生代币时抛出
     error NonzeroNativeValue();
 
-    /// @notice Thrown when `clear` is called with an amount that is not exactly equal to the open currency delta.
+    /// @notice 当调用 `clear` 时传入的数量不完全等于该代币尚未结清的 delta 时抛出。
     error MustClearExactPositiveDelta();
 
     function unlock(bytes calldata data) external returns (bytes memory);
