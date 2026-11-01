@@ -30,7 +30,7 @@
 | A04 | 其余 7 个练习文档 | 7 | 249 | ✅ 已完成 |
 | A05 | 接口 IStateView / INotifier / ISubscriber | 3 | 261 | ✅ 已完成 |
 | A06 | 其余接口（含 aave-v3） | 12 | 456 | ✅ 已完成 |
-| A07 | libraries 全部 | 12 | 595 | ⏳ 进行中 |
+| A07 | libraries 全部 | 12 | 595 | ✅ 已完成 |
 | A08 | types、Constants、TStore、examples、aave-v3、MixedRouteQuoterV2Example、.gitignore | 13 | 488 | ✅ 已完成 |
 | A09 | LimitOrder（练习 + 答案） | 2 | 729 | ✅ 已完成 |
 | A10 | Liquidate（练习 + 答案） | 2 | 311 | ✅ 已完成 |
@@ -122,18 +122,18 @@
 
 ### `foundry/src/libraries`
 
-- [ ] `foundry/src/libraries/ActionConstants.sol` — 21 行 · 待译注释约 9 行 · A07
-- [ ] `foundry/src/libraries/Actions.sol` — 49 行 · 待译注释约 13 行 · A07
-- [ ] `foundry/src/libraries/Commands.sol` — 45 行 · 待译注释约 13 行 · A07
-- [ ] `foundry/src/libraries/CurrencyLib.sol` — 42 行 · 仅 SPDX 声明，无需改动 · A07
-- [ ] `foundry/src/libraries/HookMiner.sol` — 70 行 · 待译注释约 19 行 · A07
-- [ ] `foundry/src/libraries/Hooks.sol` — 90 行 · 仅 SPDX 声明，无需改动 · A07
-- [ ] `foundry/src/libraries/Permit2Hash.sol` — 53 行 · 待译注释约 2 行 · A07
-- [ ] `foundry/src/libraries/PositionInfoLibrary.sol` — 103 行 · 待译注释约 1 行 · A07
-- [ ] `foundry/src/libraries/SafeCast.sol` — 18 行 · 仅 SPDX 声明，无需改动 · A07
-- [ ] `foundry/src/libraries/SafeTransfer.sol` — 35 行 · 仅 SPDX 声明，无需改动 · A07
-- [ ] `foundry/src/libraries/StateLibrary.sol` — 47 行 · 待译注释约 10 行 · A07
-- [ ] `foundry/src/libraries/TransientState.sol` — 22 行 · 仅 SPDX 声明，无需改动 · A07
+- [x] `foundry/src/libraries/ActionConstants.sol` — 21 行 · 待译注释约 9 行 · A07 · 译后 21 行 ✅
+- [x] `foundry/src/libraries/Actions.sol` — 49 行 · 待译注释约 13 行 · A07 · 译后 49 行 ✅
+- [x] `foundry/src/libraries/Commands.sol` — 45 行 · 待译注释约 13 行 · A07 · 译后 45 行 ✅
+- [x] `foundry/src/libraries/CurrencyLib.sol` — 42 行 · 仅 SPDX 声明，无需改动 · A07 · 已复核，无需改动 ✅
+- [x] `foundry/src/libraries/HookMiner.sol` — 70 行 · 待译注释约 19 行 · A07 · 译后 70 行 ✅
+- [x] `foundry/src/libraries/Hooks.sol` — 90 行 · 仅 SPDX 声明，无需改动 · A07 · 已复核，无需改动 ✅
+- [x] `foundry/src/libraries/Permit2Hash.sol` — 53 行 · 待译注释约 2 行 · A07 · 译后 53 行 ✅
+- [x] `foundry/src/libraries/PositionInfoLibrary.sol` — 103 行 · 待译注释约 1 行 · A07 · 译后 103 行 ✅
+- [x] `foundry/src/libraries/SafeCast.sol` — 18 行 · 仅 SPDX 声明，无需改动 · A07 · 已复核，无需改动 ✅
+- [x] `foundry/src/libraries/SafeTransfer.sol` — 35 行 · 仅 SPDX 声明，无需改动 · A07 · 已复核，无需改动 ✅
+- [x] `foundry/src/libraries/StateLibrary.sol` — 47 行 · 待译注释约 10 行 · A07 · 译后 47 行 ✅
+- [x] `foundry/src/libraries/TransientState.sol` — 22 行 · 仅 SPDX 声明，无需改动 · A07 · 已复核，无需改动 ✅
 
 ### `foundry/src/solutions`
 
@@ -217,3 +217,4 @@
 - 2026-11-01 15:02：A04 汇报完成，主代理复核 7/7 个文件通过
 - 2026-11-01 15:02：A01 汇报完成，主代理复核 5/5 个文件通过
 - 2026-11-01 15:02：A06 汇报完成，主代理复核 12/12 个文件通过
+- 2026-11-01 15:03：A07 汇报完成，主代理复核 12/12 个文件通过
