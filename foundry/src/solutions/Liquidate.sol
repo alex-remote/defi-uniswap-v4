@@ -146,7 +146,7 @@ contract Liquidate is IFlashReceiver {
         bytes memory commands = abi.encodePacked(uint8(Commands.V4_SWAP));
         bytes[] memory inputs = new bytes[](1);
 
-        // V4 的 actions 及对应参数
+        // V4 的操作（actions）与参数（params）
         bytes memory actions = abi.encodePacked(
             uint8(Actions.SWAP_EXACT_IN_SINGLE),
             uint8(Actions.SETTLE_ALL),
@@ -163,9 +163,9 @@ contract Liquidate is IFlashReceiver {
                 hookData: bytes("")
             })
         );
-        // SETTLE_ALL（代币, 最大数量）
+        // SETTLE_ALL（代币，最大数量）
         params[1] = abi.encode(currencyIn, uint256(amountIn));
-        // TAKE_ALL（代币, 最小数量）
+        // TAKE_ALL（代币，最小数量）
         params[2] = abi.encode(currencyOut, uint256(amountOutMin));
 
         // Universal Router 的输入

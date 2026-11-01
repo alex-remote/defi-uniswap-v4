@@ -61,7 +61,7 @@ contract Reposition {
             type(uint128).max,
             // amount1Max
             type(uint128).max,
-            // owner
+            // owner（头寸所有者）
             owner,
             // hook 数据
             ""

@@ -231,9 +231,9 @@ contract LimitOrder is TStore {
         pure
         returns (int24 lower, int24 upper)
     {
-        // 上一次 tick 对应的下边界 tick
+        // 上一次 tick 对应的下界 tick
         int24 l0 = _getTickLower(tick0, tickSpacing);
-        // 当前 tick 对应的下边界 tick
+        // 当前 tick 对应的下界 tick
         int24 l1 = _getTickLower(tick1, tickSpacing);
 
         if (tick0 <= tick1) {

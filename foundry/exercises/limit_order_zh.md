@@ -43,7 +43,7 @@ function place(
   - 如果流动性将被添加到当前 tick 上，则 revert。
 - 更新当前槽位（slot）中存储的 `Bucket`。
   - 调用 `getBucketId` 获取 `Bucket` 的 id。
-  - 该 bucket 的当前槽位存储在 `slots[id]` 中。
+  - 该桶（bucket）的当前槽位存储在 `slots[id]` 中。
   - 当前的 `Bucket` 存储在 `buckets[id][slots[id]]` 中。
 - 触发 `Place` 事件
 
@@ -117,7 +117,7 @@ function afterSwap(
   - 将 `Bucket.filled` 设为 `true`。
   - 将返回的 `currency0` 和 `currency1` 数量存入 `Bucket`。
   - 触发 `Fill` 事件。
-  - 将该 bucket 的槽位加 1。
+  - 将该桶的槽位加 1。
 - 将最新的 tick 存入 `ticks[key.toId()]`
 
 ## 测试

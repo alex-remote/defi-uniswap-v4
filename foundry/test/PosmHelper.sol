@@ -55,15 +55,15 @@ contract PosmHelper {
         );
         bytes[] memory params = new bytes[](3);
 
-        // MINT_POSITION 参数
+        // MINT_POSITION 的参数
         params[0] = abi.encode(
             key,
             tickLower,
             tickUpper,
             liquidity,
-            // amount0Max（token0 的最大数量）
+            // amount0Max
             type(uint128).max,
-            // amount1Max（token1 的最大数量）
+            // amount1Max
             type(uint128).max,
             // owner（头寸所有者）
             address(this),
@@ -71,11 +71,11 @@ contract PosmHelper {
             ""
         );
 
-        // SETTLE_PAIR 参数
+        // SETTLE_PAIR 的参数
         // 代币 0 和代币 1
         params[1] = abi.encode(address(0), USDC);
 
-        // SWEEP 参数
+        // SWEEP 的参数
         // 代币，接收地址 to
         params[2] = abi.encode(address(0), address(this));
 
@@ -102,7 +102,7 @@ contract PosmHelper {
         );
         bytes[] memory params = new bytes[](4);
 
-        // INCREASE_LIQUIDITY 参数
+        // INCREASE_LIQUIDITY 的参数
         params[0] = abi.encode(
             tokenId,
             liquidity,
@@ -112,15 +112,15 @@ contract PosmHelper {
             ""
         );
 
-        // CLOSE_CURRENCY 参数
+        // CLOSE_CURRENCY 的参数
         // 代币 0
         params[1] = abi.encode(address(0), USDC);
 
-        // CLOSE_CURRENCY 参数
+        // CLOSE_CURRENCY 的参数
         // 代币 1
         params[2] = abi.encode(USDC);
 
-        // SWEEP 参数
+        // SWEEP 的参数
         // 代币，接收地址 to
         params[3] = abi.encode(address(0), address(this));
 
@@ -140,7 +140,7 @@ contract PosmHelper {
         );
         bytes[] memory params = new bytes[](2);
 
-        // DECREASE_LIQUIDITY 参数
+        // DECREASE_LIQUIDITY 的参数
         params[0] = abi.encode(
             tokenId,
             liquidity,
@@ -150,7 +150,7 @@ contract PosmHelper {
             ""
         );
 
-        // TAKE_PAIR 参数
+        // TAKE_PAIR 的参数
         // 代币 0，代币 1，接收者
         params[1] = abi.encode(address(0), USDC, address(this));
 
@@ -165,7 +165,7 @@ contract PosmHelper {
         );
         bytes[] memory params = new bytes[](2);
 
-        // BURN_POSITION 参数
+        // BURN_POSITION 的参数
         params[0] = abi.encode(
             tokenId,
             amount0Min,
@@ -174,7 +174,7 @@ contract PosmHelper {
             ""
         );
 
-        // TAKE_PAIR 参数
+        // TAKE_PAIR 的参数
         // 代币 0，代币 1，接收者
         params[1] = abi.encode(address(0), USDC, address(this));
 

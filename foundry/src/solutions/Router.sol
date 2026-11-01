@@ -358,8 +358,8 @@ contract Router is TStore, IUnlockCallback {
             key: key,
             params: SwapParams({
                 zeroForOne: zeroForOne,
-                // amountSpecified < 0 = 输入数量
-                // amountSpecified > 0 = 输出数量
+                // amountSpecified < 0 = 输入数量（精确输入）
+                // amountSpecified > 0 = 输出数量（精确输出）
                 amountSpecified: amountSpecified,
                 // 价格 = 代币 1 / 代币 0
                 // 0 换 1 = 价格下降
