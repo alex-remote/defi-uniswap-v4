@@ -25,7 +25,7 @@
 | 子代理 | 负责范围 | 文件数 | 总行数 | 状态 |
 | --- | --- | ---: | ---: | --- |
 | A01 | 根目录 README、foundry/README、notes 下的 .md | 5 | 210 | ⏳ 进行中 |
-| A02 | 练习文档 limit_order / counter / flash | 3 | 241 | ⏳ 进行中 |
+| A02 | 练习文档 limit_order / counter / flash | 3 | 241 | ✅ 已完成 |
 | A03 | 练习文档 swap_router / subscriber / liquidation | 3 | 238 | ⏳ 进行中 |
 | A04 | 其余 7 个练习文档 | 7 | 249 | ⏳ 进行中 |
 | A05 | 接口 IStateView / INotifier / ISubscriber | 3 | 261 | ⏳ 进行中 |
@@ -55,9 +55,9 @@
 ### `foundry/exercises`
 
 - [ ] `foundry/exercises/MixedRouteQuoterV2Example.sol` — 47 行 · 仅 SPDX 声明，无需改动 · A08
-- [ ] `foundry/exercises/counter.md` — 63 行 → `foundry/exercises/counter_zh.md` · A02
-- [ ] `foundry/exercises/flash.md` — 42 行 → `foundry/exercises/flash_zh.md` · A02
-- [ ] `foundry/exercises/limit_order.md` — 136 行 → `foundry/exercises/limit_order_zh.md` · A02
+- [x] `foundry/exercises/counter.md` — 63 行 → `foundry/exercises/counter_zh.md` · A02 · 译后 63 行 ✅
+- [x] `foundry/exercises/flash.md` — 42 行 → `foundry/exercises/flash_zh.md` · A02 · 译后 42 行 ✅
+- [x] `foundry/exercises/limit_order.md` — 136 行 → `foundry/exercises/limit_order_zh.md` · A02 · 译后 136 行 ✅
 - [ ] `foundry/exercises/liquidation.md` — 62 行 → `foundry/exercises/liquidation_zh.md` · A03
 - [ ] `foundry/exercises/posm.md` — 55 行 → `foundry/exercises/posm_zh.md` · A04
 - [ ] `foundry/exercises/quoter.md` — 38 行 → `foundry/exercises/quoter_zh.md` · A04
@@ -208,3 +208,4 @@
 - 2026-11-01 15:01：A14 汇报完成，主代理复核 8/8 个文件通过
 - 2026-11-01 15:01：A09 汇报完成，主代理复核 2/2 个文件通过
 - 2026-11-01 15:01：A11 汇报完成，主代理复核 2/2 个文件通过；amount0Max/amount1Max 参数名标注保留原文
+- 2026-11-01 15:02：A02 汇报完成，主代理复核 3/3 个文件通过
