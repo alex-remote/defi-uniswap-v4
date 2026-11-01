@@ -34,7 +34,7 @@
 | A08 | types、Constants、TStore、examples、aave-v3、MixedRouteQuoterV2Example、.gitignore | 13 | 488 | ⏳ 进行中 |
 | A09 | LimitOrder（练习 + 答案） | 2 | 729 | ✅ 已完成 |
 | A10 | Liquidate（练习 + 答案） | 2 | 311 | ✅ 已完成 |
-| A11 | Posm（练习 + 答案） | 2 | 261 | ⏳ 进行中 |
+| A11 | Posm（练习 + 答案） | 2 | 261 | ✅ 已完成 |
 | A12 | Router（练习 + 答案） | 2 | 524 | ✅ 已完成 |
 | A13 | SwapV3ToV4 / Reposition / Swap / Subscriber（练习 + 答案） | 8 | 712 | ⏳ 进行中 |
 | A14 | CounterHook / Flash / UniversalRouter / Reader（练习 + 答案） | 8 | 659 | ✅ 已完成 |
@@ -90,7 +90,7 @@
 - [x] `foundry/src/exercises/Flash.sol` — 42 行 · 待译注释约 4 行 · A14 · 译后 42 行 ✅
 - [x] `foundry/src/exercises/LimitOrder.sol` — 247 行 · 待译注释约 16 行 · A09 · 译后 247 行 ✅
 - [x] `foundry/src/exercises/Liquidate.sol` — 127 行 · 待译注释约 14 行 · A10 · 译后 127 行 ✅
-- [ ] `foundry/src/exercises/Posm.sol` — 96 行 · 待译注释约 13 行 · A11
+- [x] `foundry/src/exercises/Posm.sol` — 96 行 · 待译注释约 13 行 · A11 · 译后 96 行 ✅
 - [x] `foundry/src/exercises/Reader.sol` — 34 行 · 待译注释约 1 行 · A14 · 译后 34 行 ✅
 - [ ] `foundry/src/exercises/Reposition.sol` — 38 行 · 待译注释约 2 行 · A13
 - [x] `foundry/src/exercises/Router.sol` — 131 行 · 待译注释约 11 行 · A12 · 译后 131 行 ✅
@@ -141,7 +141,7 @@
 - [x] `foundry/src/solutions/Flash.sol` — 61 行 · 待译注释约 5 行 · A14 · 译后 61 行 ✅
 - [x] `foundry/src/solutions/LimitOrder.sol` — 482 行 · 待译注释约 15 行 · A09 · 译后 482 行 ✅
 - [x] `foundry/src/solutions/Liquidate.sol` — 184 行 · 待译注释约 20 行 · A10 · 译后 184 行 ✅
-- [ ] `foundry/src/solutions/Posm.sol` — 165 行 · 待译注释约 26 行 · A11
+- [x] `foundry/src/solutions/Posm.sol` — 165 行 · 待译注释约 26 行 · A11 · 译后 165 行 ✅
 - [x] `foundry/src/solutions/Reader.sol` — 35 行 · 仅 SPDX 声明，无需改动 · A14 · 已复核，无需改动 ✅
 - [ ] `foundry/src/solutions/Reposition.sol` — 80 行 · 待译注释约 13 行 · A13
 - [x] `foundry/src/solutions/Router.sol` — 393 行 · 待译注释约 15 行 · A12 · 译后 393 行 ✅
@@ -207,3 +207,4 @@
 - 2026-11-01 15:01：A16 汇报完成，主代理复核 14/14 个文件通过
 - 2026-11-01 15:01：A14 汇报完成，主代理复核 8/8 个文件通过
 - 2026-11-01 15:01：A09 汇报完成，主代理复核 2/2 个文件通过
+- 2026-11-01 15:01：A11 汇报完成，主代理复核 2/2 个文件通过；amount0Max/amount1Max 参数名标注保留原文

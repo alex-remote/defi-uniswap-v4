@@ -14,7 +14,7 @@ contract PosmExercises {
 
     IPositionManager constant posm = IPositionManager(POSITION_MANAGER);
 
-    // currency0 = ETH for this exercise
+    // 本练习中 currency0 = ETH
     constructor(address currency1) {
         IERC20(currency1).approve(PERMIT2, type(uint256).max);
         IPermit2(PERMIT2).approve(
@@ -37,7 +37,7 @@ contract PosmExercises {
         );
         bytes[] memory params = new bytes[](3);
 
-        // MINT_POSITION params
+        // MINT_POSITION 的参数
         params[0] = abi.encode(
             key,
             tickLower,
@@ -47,18 +47,18 @@ contract PosmExercises {
             type(uint128).max,
             // amount1Max
             type(uint128).max,
-            // owner
+            // owner（头寸所有者）
             address(this),
-            // hook data
+            // hook 数据
             ""
         );
 
-        // SETTLE_PAIR params
-        // currency 0 and 1
+        // SETTLE_PAIR 的参数
+        // 代币 0 和代币 1
         params[1] = abi.encode(address(0), USDC);
 
-        // SWEEP params
-        // currency, address to
+        // SWEEP 的参数
+        // 代币，接收地址 to
         params[2] = abi.encode(address(0), address(this));
 
         uint256 tokenId = posm.nextTokenId();
@@ -76,7 +76,7 @@ contract PosmExercises {
         uint128 amount0Max,
         uint128 amount1Max
     ) external payable {
-        // Write your code here
+        // 在此编写你的代码
     }
 
     function decreaseLiquidity(
@@ -85,12 +85,12 @@ contract PosmExercises {
         uint128 amount0Min,
         uint128 amount1Min
     ) external {
-        // Write your code here
+        // 在此编写你的代码
     }
 
     function burn(uint256 tokenId, uint128 amount0Min, uint128 amount1Min)
         external
     {
-        // Write your code here
+        // 在此编写你的代码
     }
 }
